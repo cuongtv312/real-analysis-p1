@@ -1,0 +1,68 @@
+
+\documentclass[10pt, oneside]{article} 
+\usepackage{dsfont}
+\usepackage{amsmath, amssymb, color, graphicx, geometry}
+\usepackage{float}
+\usepackage{amsthm}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{svg}
+\usepackage{stmaryrd}
+\usepackage{subfigure}
+\usepackage{xcolor}
+\geometry{tmargin=.75in, bmargin=.75in, lmargin=.75in, rmargin = .75in}  
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Cdot}{\boldsymbol{\cdot}}
+
+\newcommand{\nsubsection}[2]{
+    \setcounter{subsubsection}{#1}
+    \addtocounter{subsubsection}{-1}
+    \subsubsection{#2}
+}
+\hypersetup{
+    colorlinks = true
+    linkcolor = blue
+}
+\newcommand{\numberset}[1]{\llbracket #1\rrbracket}
+%--------- \subsubsubsection ----------
+\usepackage{titlesec}
+
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+%--------- \subsubsubsection -----------
+
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{conv}{Convention}
+\newtheorem{rem}{Remark}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+
+\title{Real Analysis - P1}
+\author{Learning Theory and Applications Group}
+\date{Academic Year 2024-2025}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\vspace{.25in}
+
+%\section{Introduction}
+
+\part{Lebesgue Intergration}
+\input{part1/preliminary}
+\input{part1/chapter1}
+
+\end{document}
