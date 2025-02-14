@@ -43,4 +43,89 @@ If the set $E$ has a single element, then the least upper bound equal to that si
 
 On the other direction, if a set $E$ has its sup and inf equal, and assuming by contradiction that $E$ has at least 2 distinct elements, then the gap between these two points $\neq 0$. The difference between sup and inf is lowerbounded by this gap, so they cannot equal.
 
-\noindent \textbf{Ex 4.} Let a
+\noindent \textbf{Ex 4.} Let $a$ and $b$ be real numbers.
+\begin{itemize}
+    \item[i] Show that if $ab=0$, then $a=0$ or $b=0$
+    \item[ii] Verify that $a^2 -b^2=(a-b)(a+b)$ and conclude from part (i) that if $a^2=b^2$, then $a=b$ or $a=-b$.
+    \item[iii] Let $c$ be a positive real number. Define $E=\{x\in \mathbb R | x^2 < c\}$ verify that $E$ is nonempty and bounded above. Define $x_0=\sup E$. Show that $x_0^2=c$. Use part (ii) to show that there is a unique $x>0$ for which $x^2=c$. It is denoted by $\sqrt{c}$
+\end{itemize}
+For the first point, suppose that $ab=0$ and both $a$ and $b$ are not 0, then there exists $a^{-1}$ and $b^{-1}$, then we have
+\begin{equation*}
+    abb^{-1}a^{-1} = 1
+\end{equation*}
+which means that $b^{-1}a^{-1}=(ab)^{-1}$, but since $ab=0$, no such number exists.
+
+The second point is a straighforward application of distributive property,
+\begin{equation*}
+    (a-b)(a+b) = a(a+b) + (-b) (a+b) = a^2 + ab - ba - b^2 = a^2-b^2
+\end{equation*}
+Then from part (i), since $(a-b)(a+b)=0$, one of the two terms must be 0.
+
+In part (iii), we see that $0^2=0 < c$ for all $c > 0$, so $E$ is nonempty. By contradiction, suppose $E$ is not bounded from above, that is, for every $b> 0$, we can always choose some $x\in E$ such that $x > b$, letting $b > c$ lead to a contradiction with the definition of $E$.
+
+Next, since $E$ is bounded from above, then it has a supremum by completeness axiom. Denote $x_0=\sup E$. We will show that $x_0^2 \geq c$ and $x_0^2 \leq c$ to conclude that $x_0^2=c$.
+
+Since $x^2<c, \forall x \in E$, $c$ is an upperbound of $E^2$, and because $\sup E$ is the smallest/least upperbound, then $\sup(E)^2 \leq c$. On the otherhand, $x_0 \geq x, \forall x \in E$ and $E$ contains \textbf{all} real numbers whose square less than $c$, so $x_0^2 \geq c$.
+
+Finally, we need to show that $x_0$ is a unique positive real number such that $x_0^2=c$. By contradiction, suppose there is some $x>0$ such that $x\neq x_0$ and $x^2=c$, then by part (ii), since $x_0^2=x^2$, 
+we have either $x= x_0$ or $x=-x_0$, but $x$ is positive and $-x_0$ is negetive, so $x=x_0$. 
+
+\noindent \textbf{Ex 5}. Let $a, b, c$ be real bumbers such that $a \neq 0$ and consider the quadratic equation
+\begin{equation*}
+    ax^2 + bx + c = 0, x \in \mathbb R
+\end{equation*}
+\begin{itemize}
+    \item [i] Suppose $b^2-4ac > 0$, use the Field Axiom and the preceding problem to complete the square and thereby show that this equation has exactly two solutions given by 
+    \begin{equation*}
+        x = \frac{-b + \sqrt{b^2 - 4ac}}{2a} \quad \quad x = \frac{-b-\sqrt{b^2 -4ac}}{2a}.
+    \end{equation*}
+    \item [ii] Now suppose $b^2 -4ac < 0$. Show that the quadratic equation fails to have any solution.
+\end{itemize}
+Suppose that $b^2 - 4ac > 0$, then from previous problem, there exists a unique positive number $\sqrt{b^2 - 4ac}$. we can verify that 
+\begin{align*}
+    \left( x -  \frac{-b + \sqrt{b^2 - 4ac}}{2a} \right) \left( x - \frac{-b-\sqrt{b^2 -4ac}}{2a} \right) &= x^2 - x\frac{-b-\sqrt{b^2 -4ac}}{2a} - x  \frac{-b + \sqrt{b^2 - 4ac}}{2a} + \frac{b^2 - b^2 + 4ac}{4a^2}\\
+    &= x^2 + x \frac{b}{a} + \frac{c}{a} = 0.
+\end{align*}
+Then also from the previous problem, either one of the two terms equal 0. As a result, the equation has exactly two solutions.
+
+On the other hand, if $b^2 - 4ac<0$, then the equation can be rewritten as 
+\begin{equation*}
+    ax^2 + bx + c = a \left(x^2 + \frac{b}{a}x + \frac{c}{a}\right) = a\left(x^2 + \frac{b}{a}x+ \frac{b^2}{4a^2} + \frac{4ac - b^2}{4a}\right) = a\left( x + \frac{b}{2a}\right)^2 - \frac{b^2-4ac}{4} > 0,
+\end{equation*}
+which does not have any solution.
+
+\noindent \textbf{Ex 6}. Use the Completeness Axiom to show that every nonempty set of real numbers that is bounded below has an infimum and that 
+\begin{equation*}
+    \inf E = - \sup \{-x | x \in E\}.
+\end{equation*}
+
+The set $E$ is bounded below, which means that the set $E'=\{-x|x \in E\}$ is bounded from above, then its supremum exists by completeness axiom. Denote $x_0 = \sup E'$, then $x_0 \geq -x, \forall x \in E$ $\rightleftarrows -x_0 \leq x, \forall x \in E$. As a result, $-x_0 \leq \inf E$.
+
+Suppose that there exists some $x'$ such that $x' > -x_0$ and $x' \leq x, \forall x \in E$; i.e. $x'$ is a "greater" lowerbound of $E$ than $x_0$. Then we can show that $-x'$ is a "smaller" upperbound of $E'$, which contradicts with the definition of supremum. As a result, no such $x'$ exists, and $-x_0$ is the infimum of $E$
+
+\noindent \textbf{Ex 7}. For real bumbers $a$ and $b$, verify the following:
+\begin{itemize}
+    \item [i] $|ab| = |a||b|$
+    \item [ii] $|a+b| \leq |a| + |b|$
+    \item [iii]  For $\epsilon > 0$, 
+    \begin{equation*}
+        |x-a| < \epsilon \text{ if and only if } a-\epsilon < x < a + \epsilon
+    \end{equation*}
+\end{itemize}
+First we define the sign operator as $\text{sg}(x)\in\{1, -1\}, x\neq 0$. The absolute value can be written as the product with the sign operator
+\begin{equation*}
+    |a| = a\text{sg}(a)
+\end{equation*}
+Then the first claim can be verified as
+\begin{equation*}
+    |ab| = ab \text{sg}(ab) = a \text{sg}(a) b \text{sg}(b) = |a||b|
+\end{equation*}
+by noting $\text{sg}(ab) =\text{sg}(a)\text{sg}(b)$,  and 
+\begin{equation*}
+    |a+b| = (a+b)\text{sg}(a+b) = a \text{sg}(a+b) + b \text{sg}(a+b) \leq a\text{sg}(a) + b \text{sg}(b) = |a| + |b|
+\end{equation*}
+by noting $a\text{sg}(a) = \max(a, -a) \geq a \text{sg}(c), \forall c$
+
+Final point: if $x-a > 0$, then $|x-a| = x-a$ and $|x-a| < \epsilon \rightleftarrows a < x < a + \epsilon$
+
+Similar, if $x-a < 0$, then $|x-a| < \epsilon \rightleftarrows a > x > a - \epsilon$, combining the both cases and with the zero case yield the desired claim.
