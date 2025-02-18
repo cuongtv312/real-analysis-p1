@@ -1,3 +1,53 @@
+
+A field is a generalization of real and complex numbers. A \emph{field} is a set \( F \) equipped with two binary operations, addition (\(+\)) and multiplication (\(\cdot\)),
+such that it satisfies the following field axioms for any $a, b, c$ in $F$,
+
+
+\begin{itemize}
+    \item \textbf{Associativity:} 
+    \[
+    (a + b) + c = a + (b + c), \quad (a \cdot b) \cdot c = a \cdot (b \cdot c).
+    \]
+    \item \textbf{Commutativity:} 
+    \[
+    a + b = b + a, \quad a \cdot b = b \cdot a.
+    \]
+    \item \textbf{Identity:} There exist elements \( 0, 1 \in F \) such that
+    \[
+    a + 0 = a, \quad a \cdot 1 = a.
+    \]
+    \item \textbf{Additive Inverse:} For every \( a \in F \), there exists \( -a \in F \) such that
+    \[
+    a + (-a) = 0.
+    \]
+    \item \textbf{Multiplicative Inverse:} For every \( a \neq 0 \), there exists \( a^{-1} \in F \) such that
+    \[
+    a \cdot a^{-1} = 1.
+    \]
+    \item \textbf{Distributivity:} 
+    \[
+    a \cdot (b + c) = a \cdot b + a \cdot c.
+    \]
+    \item \textbf{Nontriviality}
+    \[0\neq 1\]
+\end{itemize}
+
+In particular, with the real number (not true with complex one), then we can define a total order by specifying axioms satisfied by the set of positive numbers:
+\begin{itemize}
+    \item There is a set of real numbers, denoted by $P$, called the positive numbers set.
+    \item If $a, b \in P$, then $ab \in P$
+    \item For a real number $a$, exactly one of the following is true
+        \begin{equation*}
+            a \text{ is positive, } \quad -a \text{ is positive, } \quad a =0
+        \end{equation*}
+\end{itemize}
+We say $a>b$ if $a-b\in P$
+
+The Completeness axiom: any bounded above set has a least upperbound, denote by $\sup$. Similarly, any bounded below set has a greatest lowerbound, denoted by $\inf$
+
+Extended real numbers: The real number set, extended with two special numbers $\infty$ and $-\infty$
+
+
 \subsubsection{Excercise}
 
 \textbf{Ex 1.} For $a \neq 0$ and $b \neq 0$, show that \((ab)^{-1} = a^{-1}b^{-1}\)
