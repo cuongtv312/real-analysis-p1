@@ -1,0 +1,308 @@
+\newcommand{\seq}[1]{\left\{#1\right\}}
+\newcommand{\abs}[1]{\left|#1\right|}
+
+\subsubsection{Summary}
+
+\noindent A sequence is a function $f:\N \to \R$ with customary notation $\seq{a_n}$ 
+where $n$ is called the index, the number $a_n$ is the $n$th term.
+
+\noindent A sequence $\seq{a_n}$ is said to be
+\begin{itemize}
+    \item bounded if $\exists c \geq 0$ s.t. $\abs{a_n} \leq c \forall n$ 
+    \item increasing if $a_n < a_{n+1} \forall n$
+    \item decreasing if the sequence $\seq{-a_n}$ is increasing
+    \item monotone if it's either increasing or decreasing
+\end{itemize}
+
+\noindent For any sequence $\seq{a_n}$ and a strictly increase sequence $\seq{n_k} \in \N$,
+call the sequence $\seq{a_{n_k}}$ a subsequence of $\seq{a_n}$.
+
+\begin{defn}
+    A sequence $\seq{a_n}$ converges to it's limit $a$ (write $\lim_{n \to \infty} a_n = a$ or $\seq{a_n}\to a$) if $\forall \epsilon > 0, \exists N \in \N$ s.t.
+    \[ n\geq N \implies \abs{a - a_n} < \epsilon.\]
+\end{defn}
+
+\begin{prop}
+    If $\seq{a_n}\to a$, then the limit is unique, the sequence is bounded, and, $\forall c \in \R$, 
+    \[ a_n \leq c \forall n \implies a \leq c.\]
+    Proof \hyperref[ex:1.5.extra]{\underline{\textbf{Ex Extra.}}}
+\end{prop}
+
+\begin{thm}
+    A monotone sequence of real numbers converges if and only if it is bounded.
+\end{thm}
+\begin{thm}[Bolzano-Weierstrass]
+    Every bounded sequence of real numbers has a convergent subsequence.
+\end{thm}
+\begin{defn}
+    A sequence of real numbers $\seq{a_n}$ is Cauchy if $\forall \epsilon > 0, \exists N\in\N$ s.t.
+    \[ n, m \geq N \implies \abs{a_m - a_n} < \epsilon.\]
+\end{defn}
+
+\begin{thm}
+    A sequence of real numbers converges if and only if it is Cauchy.
+\end{thm}
+\begin{thm}
+    Convergent real sequences are linear and monotonic.
+\end{thm}
+
+\begin{defn} 
+    A sequence $\seq{a_n}$ converges to infinity (write $\lim_{n \to \infty} a_n = \infty$ or $\seq{a_n}\to \infty$) if $\forall c \in \R, \exists N \in \N$ s.t.
+    \[ n\geq N \implies a_n \geq c.\]
+    Similar definitions are made at $-\infty$.
+\end{defn}
+
+\begin{defn}
+    The limit superior and limit inferior of a sequence $\seq{a_n}$ is defined as,
+    \begin{align*}
+        \limsup\seq{a_n} &= \lim_{n\to\infty} \left[\sup\left\{a_k | k \geq n\right\}\right] \\
+        \liminf\seq{a_n} &= \lim_{n\to\infty} \left[\inf\left\{a_k | k \geq n\right\}\right] \\
+    \end{align*}
+\end{defn}
+
+\begin{prop}
+    Let $\seq{a_n}$ and $\seq{b_n}$ be sequences of real numbers
+    \begin{enumerate}[label=(\roman*)]
+        \item $\limsup\seq{a_n} = \ell \in \R$ if and only if for each $\epsilon > 0$, there are infinitely many indices $n$ for which $a_n > \ell - \epsilon$ and only finitely many indices $n$ for which $a_n > \ell + \epsilon$.
+        \item $\limsup\seq{a_n} = \infty$ if and only if $\seq{a_n}$ is not bounded above.
+        \item $\limsup\seq{a_n} = -\liminf\seq{-a_n}$.
+        \item A sequence of real numbers $\seq{a_n}$ converges to $a \in \R$ if and only if $\liminf\seq{a_n} = \limsup\seq{a_n} = a$.
+        \item $a_n \leq b_n \forall n \implies \limsup\seq{a_n} \leq \liminf\seq{b_n}$.
+    \end{enumerate}
+    Proof \hyperref[ex:39]{\underline{\textbf{Ex 39.}}}
+\end{prop}
+
+\begin{defn}
+    For every sequence $\seq{a_k}$ of real numbers, define a sequence of partial sums $\seq{s_n}$ where $s_n = \sum_{k=1}^{n}$.
+    The series $\sum_{k=1}^{\infty} a_k$ is summable to $s\in\R$ when $\seq{s_n}\to s$.
+\end{defn}
+
+\begin{prop}
+    Let $\seq{a_n}$ be a sequence of real numbers.
+    \begin{enumerate}[label=(\roman*)]
+        \item The series $\sum_{k=1}^\infty a_k$ is summable if and only if for each $\epsilon > 0, \exists N\in\N$ s.t.
+        \[ \sum_{k=n}^{n+m} a_k < \epsilon \forall n \ge N, m \in \N.\]
+        \item If the series $\sum_{k=1}^\infty |a_k|$ is summable, then $\sum_{k=1}^\infty a_k$ also is summable.
+        \item If each term $a_k$ is nonnegative, then the series $\sum_{k=1}^\infty a_k$ is summable if and only if the sequence of partial sums is bounded.
+    \end{enumerate}
+    Proof \hyperref[ex:45]{\underline{\textbf{Ex 45.}}}
+\end{prop}
+
+\subsubsection{Excercise}
+\underline{\textbf{Problems done: 38, 39, 40, 41, 45. and proved the first Proposition (i.e. Ex Extra.).}}
+\bigskip
+
+\noindent \textbf{Ex 38.}
+\begin{lem}
+    For any set $X\subseteq \R$, $\forall d > 0 \in \R, \exists x \in X$ s.t. $x < \inf X + d$.
+\end{lem}
+
+\textbf{Proof} We prove by contradiction. Assume there exists $d > 0 \in \R$ s.t. 
+$\forall x \in X, \inf X + d \leq x$. There is now a greater lower bound $\inf X + d$, which contradicts the definition of infimum.
+
+\bigskip
+
+\noindent We use the above lemma to solve this excercise.
+
+\noindent Let $\liminf\seq{a_n} = L$.
+\begin{itemize}
+    \item $\liminf\seq{a_n}$ is a cluster point.
+    
+    By the above lemma, for every $n$, we can pick the smallest index $k_n \geq n$ satisfying $a_{k_n} \leq \inf\seq{a_k | k \geq n} + \frac{1}{n}$
+    
+    Now, $\forall \epsilon > 0, \exists N \in \N, N\geq 1/\epsilon$ s.t. $n \geq N \implies a_{k_n} - L < 1/N \leq \epsilon.$
+    The subsequence $\seq{a_{k_n}}$ converges to $L$ by defintion.
+    
+    \item There does not exist a cluster point $M$ satisfying $M < \liminf\seq{a_n}$.
+    
+    We argue by contradiction. Assume there exists such a cluster point, this means there also exists a subsequence $\seq{a_{m_j}}$ that converges to $M$.
+
+    Let $\epsilon = \frac{M-L}{2}$, by definition, $\exists J \in \N$ s.t. 
+    \[j \geq J \implies a_{m_j} - M < \epsilon \iff a_{m_j} < M + \epsilon = \frac{L+M}{2}.\]
+    % In other words, $j\geq J \implies \inf\seq{a_}
+
+    Also, by definition, $L = \liminf\seq{a_n} = \lim_{n\to\infty} \seq{\inf\seq{a_k | k \geq n}}$, as such $\exists N \in \N, N > J$ s.t. 
+    \[n \geq N \implies L - \inf\seq{a_k | k \geq n} < \epsilon \iff \inf\seq{a_k | k \geq n} > L - \epsilon = \frac{L + M}{2}.\]
+
+    This is a contradiction, as there exists $N \in \N$ satisfying
+    \[ n \geq N \implies \begin{cases}
+        a_{m_n} < \frac{L+M}{2} \\ \inf\seq{a_k | k > n} \geq \frac{L+M}{2}
+    \end{cases}.\]
+\end{itemize}
+Proof is similar for $\limsup\seq{a_n}$
+
+\noindent \textbf{Ex 39.} \label{ex:39}
+Let $\seq{a_n}$ and $\seq{b_n}$ be sequences of real numbers
+\begin{enumerate}[label=(\roman*)]
+    \item $\limsup\seq{a_n} = \ell \in \R$ if and only if for each $\epsilon > 0$, there are infinitely many indices $n$ for which $a_n > \ell - \epsilon$ and only finitely many indices $n$ for which $a_n > \ell + \epsilon$.
+    
+    Trivial. Use definition of suprimum and the fact that the collection of sequences $\seq{\seq{a_k | k \geq n}}_{n=1}^\infty$ is decending.
+
+    \item $\limsup\seq{a_n} = \infty$ if and only if $\seq{a_n}$ is not bounded above.
+    
+    We prove the above through showing that $\limsup\seq{a_n} < \infty$ if and only if $\seq{a_n}$ is bounded above. Note that the limit superior of a sequence always exists.
+    \begin{itemize}
+        \item If $\seq{a_n}$ is bounded above, then $\exists M < \infty \in \R$ s.t. $a_n \leq M \forall n$.
+        As a result, $\sup\seq{a_k | k \geq n} \leq M$.
+        \item If $\limsup\seq{a_n} < \infty$, then $\sup\seq{a_k \ k \geq n}$ is bounded.
+        
+        And because there exists $c > 0$ satisfying $a_n \leq \sup\seq{a_k | k \geq 1} \leq c$ for all $n$, the sequence $\seq{a_n}$ is also bounded above.
+        % \item If $\seq{a_n}$ is not bounded above, then $\forall c, \exists n$ s.t. $a_n \geq c$.
+        % And since $\sup\seq{a_k | k \geq n} \geq a_n \forall n$ by definition of suprimum;
+        % for any $c\in\R, \exists N\in\N$ s.t. \[ n\geq N \implies \sup\seq{a_k | k\geq n} \geq c.\]
+        % By definition, $\lim_{n\to\infty} \sup\seq{a_k | k \geq n} = \limsup\seq{a_n} = \infty$
+    \end{itemize}
+
+    \item $\limsup\seq{a_n} = -\liminf\seq{-a_n}$.
+    \[\limsup\seq{a_n} = \lim_{n\to\infty}\sup\seq{a_k | k \geq n} = -\lim_{n\to\infty}\inf\seq{-a_k | k \geq n} = -\liminf\seq{-a_n}.\]
+    (I ommitted the proof to $\lim_{n\to\infty}\seq{a_n} = -\lim_{n\to\infty}\seq{-a_n}$. It is trivial and uses the definition.)
+
+    \item A sequence of real numbers $\seq{a_n}$ converges to $a \in \R$ if and only if $\liminf\seq{a_n} = \limsup\seq{a_n} = a$.
+    
+    \begin{itemize}
+        \item $\liminf\seq{a_n} = \limsup\seq{a_n} = a \implies \seq{a_n}\to a$
+        
+        For any $\epsilon > 0$, there exists $N, M\in\N$ s.t.
+        \[\begin{cases}
+            n\geq N \implies -\epsilon < a - \sup\seq{a_k | k \geq n} \leq a - a_n \\
+            n\geq M \implies a - a_n \leq a - \inf\seq{a_k | k \geq n} < \epsilon
+        \end{cases} \]
+
+        So $\exists L = \max(N, M) \in \N$ s.t.
+        \[ n \geq L \implies \begin{cases}
+            -\epsilon < a - a_n \\ a - a_n < \epsilon
+        \end{cases} \implies \abs{a - a_n} < \epsilon. \] 
+
+        By definition, $\seq{a_n}\to a$
+
+        \item $\seq{a_n}\to a \implies \liminf\seq{a_n} = \limsup\seq{a_n} = a$
+        
+        For any $\epsilon > 0$, there exists $N \in\N$ s.t.
+        \[\forall n \geq N, \begin{cases}
+            -\epsilon < a - a_n \\
+            a - a_n < \epsilon
+        \end{cases}\implies \forall n \geq N,\begin{cases}
+            \inf\seq{a_k | k \geq n} \leq a_n < a + \epsilon \\
+            a - \epsilon < a_n \implies a - \epsilon < \inf\seq{a_k | k \geq n} 
+        \end{cases}. \]
+        which is equivalent to $\abs{a - \inf\seq{a_k | k \geq n}} < \epsilon$ for all $n\geq N$ and so $\liminf\seq{a_n} = a$ by definition.
+
+        Similar proof is done for $\limsup\seq{a_n} = a$.
+    \end{itemize}
+     
+
+    \item $a_n \leq b_n \forall n \implies \limsup\seq{a_n} \leq \liminf\seq{b_n}$. (similar to book)
+    
+    Consider the sequence $\seq{c_n}$, where $c_n = \inf\seq{b_k | k \geq n} - \sup\seq{a_k | k \geq n}$ for all $n$. 
+    
+    By linearity of convergent sequences, $\seq{c_n}\to c = \liminf\seq{b_n} - \limsup\seq{a_n}$.
+    This means, $\forall \epsilon > 0, \exists N\in\N$ s.t.
+    \[ n\geq N \implies -\epsilon < c - c_n < \epsilon. \]
+    In particular, $0\leq c_N < c + \epsilon$. Since $c \geq -\epsilon$ for any positive number $\epsilon$, $c \geq 0$.
+\end{enumerate}
+
+\noindent \textbf{Ex 40.}
+
+Proven above in \underline{\textbf{Ex. 38}}, $\liminf\seq{a_n}$ and $\limsup\seq{a_n}$ are the smallest and largest cluster points of $\seq{a_n}$.
+
+Shown above in \underline{\textbf{Ex. 39}}, $\seq{a_n}\to a \iff \liminf\seq{a_n} = \limsup\seq{a_n} = a$.
+
+The proof is now trivial.
+
+The sequence $\seq{a_n}$ has only one cluster point if and only if $\liminf\seq{a_n} = \limsup\seq{a_n} = a$, which is equivalent to $\seq{a_n} \to a$.
+
+\noindent \textbf{Ex 41.}
+% Denote the sequences $\seq{i_n}, \seq{s_n}$ where $i_n = \inf\seq{a_k | k \geq n}$ and $s_n = \sup\seq{a_k | k \geq n}$
+At every index $n$,
+\[ \inf\seq{a_k | k \geq n} \leq \sup\seq{a_k | k \geq n} \]
+
+And so, by the linearity property of convergent sequences, $\lim_{n\to\infty}\inf\seq{a_k | k \geq n} \leq \lim_{n\to\infty}\sup\seq{a_k | k \geq n}$ or $\liminf\seq{a_n} \leq \limsup\seq{a_n}$.
+
+\noindent \textbf{Ex 45.} \label{ex:45}
+Let $\seq{a_n}$ be a sequence of real numbers.
+\begin{enumerate}[label=(\roman*)]
+    \item The series $\sum_{k=1}^\infty a_k$ is summable if and only if for each $\epsilon > 0, \exists N\in\N$ s.t.
+    \[ \abs{\sum_{k=n}^{n+m} a_k} < \epsilon \forall n \geq N, m \in \N.\]
+    
+    The series $\sum_{k=1}^{\infty} a_k$ is summable if and only if $\seq{s_n}$ converges.
+
+    As such, for each $\epsilon > 0, \exists N \in \N$ s.t.
+    \begin{align*}
+        j > i-1 \geq N &\implies \epsilon > \abs{\sum_{k=i}^{j} a_k} \\
+        \iff n \geq N, m \in \N &\implies \epsilon > \abs{\sum_{k=n}^{n+m} a_k} \quad (i-1 = n, j = n+m)
+    \end{align*}
+    
+    \item If the series $\sum_{k=1}^\infty \abs{a_k}$ is summable, then $\sum_{k=1}^\infty a_k$ also is summable.
+
+    If the series $\sum_{k=1}^\infty \abs{a_k}$ is summable, then the partial sum sequence $\seq{\sum_{k=1}^{n} \abs{a_k}}$ converges.
+    
+    As such, $\forall \epsilon > 0, \exists N \in\N$ s.t.
+    \[ n,m \geq N \implies \epsilon > \abs{\sum_{k=\min(m,n)}^{\max(m,n)} \abs{a_k}} \geq \abs{\sum_{k=\min(m,n)}^{\max(m,n)} a_k}. \]
+    The partial sum sequence $\seq{\sum_{k=1}^{n} a_k}$ converges because it is Cauchy. As a result, the series $\sum_{k=1}^\infty a_k$ also is summable.
+
+    \item If each term $a_k$ is nonnegative, then the series $\sum_{k=1}^\infty a_k$ is summable if and only if the sequence of partial sums is bounded.
+    
+    Since $a_k > 0 \forall k\in\N$, $s_n = \sum_{k=1}^{n} a_k \leq \sum_{k=1}^{n+1} a_k = s_{n+1}$ for all $n$. In other words, the partial sum sequence is nondecreasing.
+
+    The series $\sum_{k=1}^{\infty} a_k$ is summable if and only if $\seq{s_n}$ converges.
+    \begin{itemize}
+        \item If $\seq{s_n}$ converges then it is bounded.
+        \item If $\seq{s_n}$ is bounded, then it converges to $s = \sup\seq{s_n | n \in \N}$ (note that the suprimum exists thanks to the Completeness Axiom)
+        
+        For any $\epsilon > 0$, we have:
+        \begin{itemize}[label=+)]
+            \item $s_n \leq s < s + \epsilon$ for all $n$.
+            \item Because $s - \epsilon$ is not an upperbound of $\seq{s_n | n\in\N}$, $\exists N\in\N$ s.t $s_N > s-\epsilon$.
+            
+            And since the sequence $\seq{s_n}$ is nondecreasing, $n\geq N \implies s_n > s-\epsilon$.
+        \end{itemize}
+        By definition, $\seq{s_n}$ converges to $s$.
+    \end{itemize}
+\end{enumerate}
+
+\noindent \textbf{Ex Extra.} \label{ex:1.5.extra}
+If $\seq{a_n}\to a$, then:
+\begin{itemize}
+    \item The limit is unique.
+    
+    We prove by contradiction. Assume $\seq{a_n}\to a, \seq{a_n}\to b$ and $a\neq b$.
+    
+    Let $d = \abs{a-b}$ and $\epsilon = \frac{d}{2}$.
+    By definition, there exists $N, M\in\N$ s.t.
+    \[\begin{cases}
+        n\geq N \implies \abs{a - a_n} < \epsilon \\
+        n\geq M \implies \abs{b - a_n} < \epsilon
+    \end{cases} \]
+
+    So $\exists L = \max(N, M) \in \N$ s.t. $n \geq L$ implies both $\abs{a - a_n}$ and $\abs{b - a_n}$ are less than $\epsilon$.
+    
+    By the triangle inequality, $d = \abs{a-b} \leq \abs{a - a_n} + \abs{b - a_n} < 2\epsilon = 2\times\frac{d}{2} = d$. In other words, $d < d$, which is a contradiction.
+
+    \item The sequence is bounded.
+    
+    Choose any $\epsilon > 0$.
+    
+    By definition, $\exists N\in\N$ s.t.
+    \[ n\geq N \implies -\epsilon < a-a_n < \epsilon \iff a-\epsilon < a_n < a+\epsilon \implies \abs{a_n} < \abs{a} + \epsilon \]
+
+    Denote $M_1 = \max\left[\seq{a_n | n\in\N, n < N}\right]$, note that we can always find $M_1$ because this sequence is finite.
+    
+    We conclude that $\seq{a_n}$ is bounded by $\max\left(\abs{a} + \epsilon, M_1\right)$.
+
+    \item $\forall c \in \R$, if $a_n \leq c \forall n$ then $a \leq c$.
+    
+    \begin{enumerate}[label=\underline{Approach \arabic*)}]
+        \item Using only the definition.
+        
+        For any $\epsilon > 0, \exists N\in\N$ s.t
+        \[ n \geq N \implies \abs{a - a_n} < \epsilon \implies a-\epsilon < a_n \leq c\]
+
+        Since $a-\epsilon < c$ is true for all $\epsilon > 0$, we conclude that $a \leq c$.
+        
+        \item Using only the definition.
+        
+        Prove by contradiction. Assume $a > c$, then set $\epsilon = a - c > 0$...
+        
+        \item Consider the sequence $\seq{c_n}$, where $c_n = c \forall n$ and use the monotonic property of convergent sequences. (Trivial)
+    \end{enumerate}
+\end{itemize}
