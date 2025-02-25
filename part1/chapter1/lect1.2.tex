@@ -1,4 +1,5 @@
-Hoang Anh:
+\subsubsection{Excercise}
+
 
 \subsubsection{Excercise}
 \noindent 
@@ -37,3 +38,12 @@ n - (k + 1) = n - k - 1 = (n - k) - 1
 $$
 and given our assumption, $n - k \in \mathbb{N}$, it follows that $(n - k) - 1 \in \mathbb{N}$ i.e. $P(k + 1)$ is true.\\
 By the principle of mathematical induction, for a fixed $n \in \mathbb{N}$ and $m < n$, $n - m$ is a natural number. The same can be proven given a fixed $m$ instead of $n$.
+
+\textbf{Ex 13.}Show that each real number is the supremum of a set of rational numbers and also supremum of a set of irrational numbers.
+
+Let $x$ be any real number. We want to show that $x$ is the supremum of both a set of rational numbers and a set of irrational numbers.
+
+Define a set of rational numbers as: $S=\{q \in \mathbb{Q}: q < x\}$. According to Theorem 2, rational numbers are dense in $\mathbb{R}$, therefore there are rational numbers arbitrarily close to $x$, meaning $S$ is nonempty. The upper bound of $S$ is $x$, since every rational number $q \in S$ must satisfies $q < r$. To prove $x$ is the least upper bound of $S$, we use The density of the rational (and irrational) numbers in $R$, which guarantees that between any number $s$ that is less than a given real number $x$, there exists a rational number. This means there is a number $q \in S$ that satisfies $s < q < x$. Thus, no number smaller than $x$ can be an upper bound of S, which confirms that $x = \text{sup}(S)$ is indeed the least upper bound.
+
+Similarly, for irrational numbers, we define a set $T = \{t \in \mathbb{R} / \mathbb{Q} : t < x\}$. We have to prove $T$ is dense in $\mathbb{R}$, and the proof for rational numbers can be applied for irrational numbers. We can prove $T$ is dense in $\mathbb{R}$ through irrational numbers are dense in $\mathbb{R}$. Since $Q$ are dense in $R$, therefore $Q + \sqrt{2}$ are dense in $R + \sqrt{2}$. We know that $Q + \sqrt{2}$ is a subset in of the irrational numbers, therefore irrational numbers are dense in $R$. From this, we can prove there exists an irrational number $t$ satisfies $s < t < x$. This mean $x = \text{sup}(T)$ is indeed the least upper bound.
+
