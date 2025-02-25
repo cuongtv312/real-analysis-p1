@@ -1,3 +1,65 @@
 Hoang Anh
 
+
+\textbf{Exercise 16:} Consider the mapping from $\mathbf{N}$ to $\mathbf{Z}$ defined by
+
+\[ f(n) = \begin{cases}
+0 & \text{if } n = 1 \\
+\frac{n}{2} & \text{if } n \text{ is even} \\
+-\frac{n+1}{2} & \text{if } n \text{ is odd and } n > 1
+\end{cases} \]
+
+If $n$ is a natural number, then $f(2n) = n$ and $f(2n-1) = -n$. We also have $f(1) = 0$. Therefore $f$ is onto.
+
+Now suppose $f(n) = f(n')$. If $f(n)$ equals 0, then $n = n' = 1$. If $f(n)$ is positive, then $\frac{n}{2} = \frac{n'}{2} \implies n = n'$. If $f(n)$ is negative, then $-\frac{n+1}{2} = -\frac{n'+1}{2} \implies n = n'$. Therefore $f$ is one-to-one.
+
+\textbf{Exercise 18:}As a preliminary result, I rst show that every nite set of numbers contains a maximal element.
+\textbf{S(n):} Let $S \subset \mathbb{R}$ be a non-empty set. If there exists a one-to-one correspondence between $\{1, \cdots, n\}$ and $S$, then $S$ contains a maximal element.
+
+Suppose there exists a one-to-one correspondence $f$ between $\{1\}$ and $S$. Then $S = \{f(1)\}$, so $s \le f(1)$ for all $s \in S$. Thus $S(1)$ is true.
+
+Now assume $S(k)$ is true and suppose there exists a one-to-one correspondence between $\{1, \cdots, k+1\}$ and $S$. Then $S = \{f(i) | 1 \le i \le k\} \cup \{f(k+1)\}$. By the induction hypothesis, $\{f(i) | 1 \le i \le k\}$ has a maximal element $\hat{s}$. If $\hat{s} \ge f(k+1)$, then $\hat{s}$ is a maximal element of $S$. If $\hat{s} < f(k+1)$, then $f(k+1)$ is a maximal element of $S$. We conclude that $S(k+1)$ must be true.
+
+\vspace{1em}
+
+\textbf{S(n):} The Cartesian product $\underbrace{\mathbb{N} \times \cdots \times \mathbb{N}}_{n \text{ times}}$ is countably infinite.
+
+The identity function establishes a one-to-one correspondence between $\mathbb{N}$ and $\mathbb{N}$, so $\mathbb{N}$ is countable. Now suppose $\mathbb{N}$ were finite. Then by the preliminary result, there would exist a maximal element $m$ of $\mathbb{N}$. But $m+1$ would then be a natural number larger than $m$, a contradiction. We conclude that $\mathbb{N}$ is countably infinite, so $S(1)$ is true.
+
+Suppose $S(k)$ is true. Then there exists a one-to-one mapping $f$ of $\mathbb{N}$ onto $\underbrace{\mathbb{N} \times \cdots \times \mathbb{N}}_{k \text{ times}}$. Consider the mapping from $\underbrace{\mathbb{N} \times \cdots \times \mathbb{N}}_{k+1 \text{ times}}$ to $\mathbb{N}$ defined by
+\[ g(n_1, \cdots, n_k, n_{k+1}) = (f^{-1}(n_1, \cdots, n_k) + n_{k+1})^2 + n_{k+1} \]
+
+It is straightforward to check that $g$ is one-to-one using the argument in the text. Thus $\underbrace{\mathbb{N} \times \cdots \times \mathbb{N}}_{k+1 \text{ times}}$ is equipotent to $g(\underbrace{\mathbb{N} \times \cdots \times \mathbb{N}}_{k+1 \text{ times}})$, a subset of the countable set $\mathbb{N}$. We infer from Theorem 3 that $\underbrace{\mathbb{N} \times \cdots \times \mathbb{N}}_{k+1 \text{ times}}$ is countable.
+
+Now suppose $\underbrace{\mathbb{N} \times \cdots \times \mathbb{N}}_{k+1 \text{ times}}$ is finite. Then there exists a one-to-one mapping $f$ from $\{1, \cdots, n\}$ onto $\underbrace{\mathbb{N} \times \cdots \times \mathbb{N}}_{k+1 \text{ times}}$ for some $n \in \mathbb{N}$. Consider the mapping from $\underbrace{\mathbb{N} \times \cdots \times \mathbb{N}}_{k \text{ times}}$ to $\{1, \cdots, n\}$ defined by
+\[ g(n_1, \cdots, n_k) = f^{-1}(n_1, \cdots, n_k, 1) \]
+
+This establishes a one-to-one correspondence between $\underbrace{\mathbb{N} \times \cdots \times \mathbb{N}}_{k \text{ times}}$ and a subset of $\{1, \cdots, n\}$, implying that $\underbrace{\mathbb{N} \times \cdots \times \mathbb{N}}_{k \text{ times}}$ is finite. This contradicts the assumption that $\underbrace{\mathbb{N} \times \cdots \times \mathbb{N}}_{k \text{ times}}$ is countably infinite. We conclude that $\underbrace{\mathbb{N} \times \cdots \times \mathbb{N}}_{k+1 \text{ times}}$ is countably infinite, so $S(k+1)$ is true.
+\textbf{Exercise 20:}
+
+Suppose $g(f(a)) = g(f(a'))$. Since $g$ is one-to-one, we must have $f(a) = f(a')$. Since $f$ is one-to-one, we must also have $a = a'$. But this means $g \circ f$ is one-to-one. Now fix $c \in C$. Since $g$ is onto, there exists $b \in B$ such that $g(b) = c$. Since $f$ is onto, there also exists $a \in A$ such that $f(a) = b$. But this means $g(f(a)) = c$, so $g \circ f$ is onto.
+
+Suppose $f^{-1}(b) = f^{-1}(b')$. Then $b = f(f^{-1}(b)) = f(f^{-1}(b')) = b'$, so $f^{-1}$ must be one-to-one. Now suppose $a \in A$. Then $a = f^{-1}(f(a))$, so $f^{-1}$ is onto.
+
+\textbf{Exercise 22:}
+Suppose $2^{\mathbb{N}}$ is countable. Let $\{X_n | n \in \mathbb{N}\}$ denote an enumeration of $2^{\mathbb{N}}$ and define
+
+\[ D = \{ n \in \mathbb{N} | n \text{ is not in } X_n \} \]
+
+Then $D \in 2^{\mathbb{N}}$, so $D = X_d$ for some $d \in \mathbb{N}$. If $d$ is not in $D$, then we would have a contradiction because $d$ would have to be in $D$ by construction. Likewise if $d$ is in $D$, then we have a contradiction because $d$ could not be in $D$ by construction. We can conclude that no enumeration can exist, so $2^{\mathbb{N}}$ is uncountable.
+\textbf{Exercise 26:} Let $G$ denote the set of irrational numbers in $(0, 1)$ and let $\{q_n | n \in \mathbb{N}\}$ denote an enumeration of the rationals in $(0, 1)$. Define
+\[ i_n = \frac{\sqrt{2}}{2^n} \]
+and construct the mapping $f: (0, 1) \rightarrow G$ as
+\[ f(x) = \begin{cases} i_{2n} & \text{if } x = q_n \\ i_{2n-1} & \text{if } x = i_n \\ x & \text{otherwise} \end{cases} \]
+$f$ defines a one-to-one correspondence between $(0, 1)$ and $G$, so $|(0, 1)| = |G|$.
+
+In Problem 25 we showed that $|\mathbb{R}| = |(0, 1)|$, so the above result implies $|\mathbb{R}| = |G|$. This means we can find a one-to-one mapping $g$ from $\mathbb{R}$ onto $G$. Now consider the mapping $h: \mathbb{R} \times \mathbb{R} \rightarrow G \times G$ defined by
+\[ h(x, y) = (g(x), g(y)) \]
+$h$ defines a one-to-one mapping from $\mathbb{R} \times \mathbb{R}$ onto $G \times G$, so $|\mathbb{R} \times \mathbb{R}| = |G \times G|$.
+
+Recall that if $x$ is an irrational number in $(0, 1)$, it can be uniquely written as
+\[ x = \frac{1}{a_1 + \frac{1}{a_2 + \frac{1}{a_3 + \cdots}}} = [a_1, a_2, a_3, \cdots] \]
+where $a_1, a_2, a_3, \cdots$ is an infinite sequence of natural numbers. (This representation is called the continued fraction expansion of $x$.) Let $x = [a_1, a_2, \cdots]$ and $y = [b_1, b_2, \cdots]$ denote two elements of $G$ and consider the mapping $m: G \times G \rightarrow G$ defined by
+\[ m(x, y) = [a_1, b_1, a_2, b_2, \cdots] \]
+Then $m$ defines a one-to-one correspondence between $G \times G$ and $G$, so $|G \times G| = |G|$. Combining the above results, we have $|\mathbb{R} \times \mathbb{R}| = |G \times G| = |G| = |\mathbb{R}|$.
 \subsubsection{Excercise}
