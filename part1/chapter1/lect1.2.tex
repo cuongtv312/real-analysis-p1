@@ -1,3 +1,39 @@
 Hoang Anh:
 
 \subsubsection{Excercise}
+\noindent 
+\textbf{Exercise 9:}\\
+a) We need to prove that If $n > 1$ is a natural number, then $n - 1$ is also a natural number.\\
+Let P(n) be the assertion that $n \in \mathbb{N}$ and $n > 1 => n - 1 \in \mathbb{N}$\\
+\textbf{Base Case:} Let $n = 2$. Then:
+\[
+n - 1 = 2 - 1 = 1 \in \mathbb{N}.
+\]
+Thus, the base case holds.\\
+\textbf{Inductive Step:} Assume that $P(k)$ is true for some natural number $k \geq 2$, i.e., assume that:
+\[
+k - 1 \in \mathbb{N}.
+\]
+We need to show that $P(k+1)$ is also true, meaning:
+\[
+(k+1) - 1 \in \mathbb{N}.
+\]
+Since:
+\[
+(k+1) - 1 = k,
+\]
+and by our inductive hypothesis, $k \in \mathbb{N}$, it follows that $P(k+1)$ is true.\\
+By the principle of mathematical induction, for all $n > 1$, we conclude that $n - 1$ is a natural number.\\
+b) We prove that the given statement is true for a fixed $n$.\\
+Let $P(m)$ be the assertion that for a given natural number $n$ and $m < n$, then $n - m$ is a natural number.\\
+\textbf{Base case}: $P(1)$ is true since $n - 1$ is a natural number, according to part a).\\
+\textbf{Inductive step}: Assume that $P(k)$ is true for some natural number $k \geq 2$ and $k < n$, i.e $n - k \in \mathbb{N}$. We need to show that $P(k + 1)$ is also true, meaning that
+$$
+n - (k + 1) \in \mathbb{N}
+$$
+Since 
+$$
+n - (k + 1) = n - k - 1 = (n - k) - 1
+$$
+and given our assumption, $n - k \in \mathbb{N}$, it follows that $(n - k) - 1 \in \mathbb{N}$ i.e. $P(k + 1)$ is true.\\
+By the principle of mathematical induction, for a fixed $n \in \mathbb{N}$ and $m < n$, $n - m$ is a natural number. The same can be proven given a fixed $m$ instead of $n$.
