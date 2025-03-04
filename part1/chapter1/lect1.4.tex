@@ -10,8 +10,10 @@ Suppose $E$ is a set containing only isolated points. For each $x \in E$, define
 
 Conversely, suppose $E = \text{int } E$. If $x$ is a point in $E$, then $x \in \text{int } E$. But this means there exists an $r > 0$ such that the interval $(x-r, x+r)$ is contained in $E$, so $E$ is open.
 
-(ii) Let $E$ be dense in $\mathbf{R}$ and suppose $x \in \text{int}(\mathbf{R} \setminus E)$. Then there exists $r > 0$ such that $(x-r, x+r) \subseteq$
-\mathbf{R} \setminus E$. But this means there does not exist an element of $E$ between any two numbers in $(x-r, x+r)$, contradicting the assumption that $E$ is a dense set. We conclude that no such $x$ can be found, so $\text{int}(\mathbf{R} \setminus E) = \emptyset$.
+(ii) Let $E$ be dense in $\mathbf{R}$ and suppose $x \in \text{int}(\mathbf{R} \setminus E)$. Then there exists $r > 0$ such that $(x-r, x+r) \subseteq
+\mathbf{R} \setminus E$. 
+But this means there does not exist an element of $E$ between any two numbers in $(x-r, x+r)$, contradicting the assumption that $E$ is a dense set.
+We conclude that no such $x$ can be found, so $\text{int}(\mathbf{R} \setminus E) = \emptyset$.
 
 Conversely, suppose $\text{int}(\mathbf{R} \setminus E) = \emptyset$. Let $x$ and $y$ be two real numbers satisfying $x < y$ and suppose $(x, y) \subset \mathbf{R} \setminus E$. Let $z \in (x, y)$ and choose $r \in (0, \min(z-x, y-z))$. Then $(z-r, z+r) \subset (x, y)$, so $(z-r, z+r) \subset \mathbf{R} \setminus E$. But this means $z \in \text{int}(\mathbf{R} \setminus E)$, contradicting the assumption that $\text{int}(\mathbf{R} \setminus E) = \emptyset$. Therefore $(x, y) \not\subset \mathbf{R} \setminus E$, which means there must be an element of $E$ between $z$ and $y$. But since $x$ and $y$ were arbitrary, this means $E$ is dense in $\mathbf{R}$.
 \subsubsection{Excercise}
