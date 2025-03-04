@@ -1,0 +1,22 @@
+\subsubsection{Excercise}
+
+\textbf{Ex 50.} Show that a Lipschitz function is uniformly continuous but there are uniformly continuous functions that are not Lipschitz
+
+We can prove that not all functions that are uniformly continuous are a Lipschitz function by using contradiction. Suppose we have function $f = \sqrt{x}$ uniformly continuous on $\{0, 1\}$ and is a Lipschitz function. Based on definition, there is a $c > 0$ for which
+\begin{equation}
+    |\sqrt{x'} - \sqrt{x}| \leq c|x' - x|.
+\end{equation}
+If we take $x = 0$, the equation become $|\sqrt{x'}| \leq c |x'|$. We can rewrite this as $|\sqrt{x'}|/|x'| \leq c$. However, if $x' \rightarrow 0$, we have $|\sqrt{x'}|/|x'| \rightarrow \infty$ which contradicts the inequality. Hence, $f = \sqrt{x}$ is not a Lipschitz function.
+
+\noindent \textbf{Ex 53.} \label{ex:53}
+Show that a set $E$ of real numbers is closed and bounded if and only if every open cover of $E$ has a finite subcover.
+\begin{enumerate}[label=(\roman*)]
+	\item ($\Rightarrow$) According to Heine-Borel theorem, if a set $E$ of real numbers is closed and bounded, every open cover of $E$ has a finite subcover.
+	
+	\item ($\Leftarrow$) We first prove that if every open cover of $E$ has a finite subcover, then $E$ is bounded. We form an open cover of $E$ by defining a set $O_x = (x - 1, x + 1)$ for every $x \in E$. The collection $\{O_x: x\in E\}$ is an open cover for $E$. This collection must have a finite subcover $\{O_{x_1}, O_{x_2}, \ldots, O_{x_n}\}$. Since $E$ is contained in a finite union of bounded sets, $E$ must be bounded.
+	
+	We now prove that $E$ must be closed. Suppose $E$ is not closed. Let $y \notin E$ be a point of closure of $E$.  We form an open cover of $E$ by defining a set $O_x = (x - r_x, x + r_x)$ where $r_x = |y - x| / 2$ for every $x \in E$. The collection $\{O_x: x\in E\}$ must have a finite subcover $\{O_{x_1}, O_{x_2}, \ldots, O_{x_n}\}$. Let $r_{\min} = \min\{r_{x_1}, r_{x_2}, \ldots, r_{x_n}\}$. Since $y$ is a point of closure of $E$, the open interval $(y - r_{\min}, y + r_{\min})$ must contain a point $x' \in E$. This means $|x' - y| < r_{\min}$. We now show that $x'$ is not in the subcover. 
+	
+	$$\forall i: 1 \leq i \leq n, |x_i - x'| > |x_i - y| - |x' - y| > |x_i - y| - r_{\min} > 2 r_{x_i} - r_{\min} > r_{x_i}$$
+	$\forall i: |x_i - x'| > r_{x_i} \Rightarrow \forall i: x' \notin O_{x_i} \Rightarrow x' \notin \bigcup_{1 \leq i \leq n} O_{x_i}$. This means the finite subcover fails to cover $E$. This contradiction implies that $E$ is closed.
+\end{enumerate}
