@@ -1,0 +1,49 @@
+\subsubsection{Excercise}
+
+\begin{exercise}{1}
+    Prove that if $A$ and $B$ are two sets in $\mathcal A$ with $A \subseteq B$, then $m(A) \leq m(B)$. This property is called monotonicity.
+\end{exercise}
+\begin{solution}
+Let $C = B \setminus A$, then by countably additive property of $m$ over countable disjoint set, then
+\[m(A) = m(B) - m(C) \leq m(B)\]
+where the last inequality is because $m$ is a set function with values in $[0, \infty]$
+\end{solution} 
+ 
+\begin{exercise}{2} 
+Prove that if there is a set $A$ in the collection $\mathcal A$ for which $m(A) < \infty$, then $m(\emptyset)= 0$
+\end{exercise}
+
+\begin{solution}
+    \begin{align*}
+        m(A) = m(A \cup \emptyset) = m(A) + m(\emptyset)
+    \end{align*}
+    \begin{equation*}
+        m(\emptyset) = 0
+    \end{equation*}
+\end{solution}
+
+\begin{exercise}{3}
+Let $\{E_k\}_k$ be countable collection of sets in $\mathcal A$. Prove that $m(\bigcup_k E_k) \leq \sum_k m(E_k)$
+\end{exercise}
+
+\begin{solution}
+    Let the set $A_1 = \emptyset$ and $A_i = \bigcup_{k < i} E_k$ with $i > 1$. Further define $X_i = E_i \setminus A_i $, then 
+    $\bigcup X_i = \bigcup E_i$ and $\{X_i\}$ are countable disjoint sets. 
+    \begin{equation*}
+        m(\bigcup_k E_k) = m(\bigcup_k X_k) = \sum_k m(X_k) \leq \sum_k m(E_k)
+    \end{equation*}
+    the last inequality is due to $X_k \subseteq E_k$.
+\end{solution}
+
+\begin{exercise}{4}
+    A set function $c$, defined on all subsets of $\mathbb R$, is defined as follows. Define $c(E)$ to be $\infty$ if $E$ has infinitly many members and $c(E)$ to be equal the number of the elements in $E$ if $E$ is finite; define $c(\emptyset) = 0$. Show that $c$ is a countably additive and translation invariant set function. This set function is called the counting measure.
+\end{exercise}
+
+\begin{solution}
+    Sketch: 
+    The union of two finite, disjoint is finite and the elements in this union is equal the total number of element in two sets.
+    If one of the two set are infinite, there union is infinite and the measure is infinite by definition. 
+    
+    Translation operation does not alter the number of elements in a set, so $m$ is invariance under translation.
+\end{solution}
+

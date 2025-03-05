@@ -1,0 +1,50 @@
+\subsection{Lebesgue Outer Measure}
+
+\subsubsection{Excercise}
+
+\begin{exercise}{5}
+    By using properties of outer measure, prove that the interval $[0, 1]$ is not countable
+\end{exercise}
+
+\begin{solution}
+    Let $I$ be the interval of intest. By definition of outer measure on an interval, $m^*(I)=1$.
+
+    Now suppose that $I$ is countable, then there exists an enumeration of I, and due to the countably subadditive property of outer measure
+    \begin{equation*}
+        1=m^*(I) \leq \sum_{i \in I} m^* (\{i\}) = \sum^\infty 0 = 0,
+    \end{equation*}
+    a contradiction, so $I$ is uncountable.
+\end{solution}
+
+\begin{exercise}{6}
+    Let $A$ be the set of irrational numbers in the interval $[0,1]$. Prove that $m^*(A)=1$.
+\end{exercise}
+\begin{solution}
+    Let $B = A^C \cap I$ the set of rational numbers in $I$, by finite subadditivity
+    \begin{equation*}
+        1=m^*(I) \leq m^*(A) + m^*(B) = m^*(A)
+    \end{equation*}
+    Furthermore, $A\leq I$ and by monotonicity of outer measure, then $m^*(A) \leq m^*(I)=1$. As a result, $m^*(A)=1$ 
+\end{solution}
+
+\begin{exercise}{7}
+    A set of real numbers is said to be a $G_\delta$ set provided it is the intersection of a countable
+    collection of open sets. Show that for any bounded set $E$, there is a $G_\delta$ set $G$ for which 
+    \begin{equation*}
+        E \subseteq G \text{ and } m^*(G) = m^*(E)
+    \end{equation*}
+\end{exercise}
+
+\begin{solution}
+    This exercise is inspired from the proof of theorem 11.
+
+    Suppose $m^*(E)$ finite, then for each $\epsilon > 0$, there exists an open intervals $\{I_i\}_i$, let $O_\epsilon=\bigcup_i I_i$, then $O_\epsilon$ is open, $O_\epsilon \supseteq E$ and
+    \begin{equation*}
+        m^*(O_\epsilon) \geq m^*(E) \geq m^*(O_\epsilon) - \epsilon
+    \end{equation*}
+    Define a new collection of open sets $\{O_n\}$ where each $O_n$ is associated with an $\epsilon = 1/n$, then the intersection $\bigcap^\infty O_i$ is a $G_\delta$ set with the desired property.
+\end{solution}
+
+\begin{exercise}{8}
+    Let $B$ be the set of rational numbers in the interval $[0, 1]$, and let $\{I_k\}^n$ be a finite colleciton of open intervals that cover $B$. Prove that $\sum^n m^*(I_k) \geq 1$
+\end{exercise}
