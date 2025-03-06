@@ -24,7 +24,7 @@
     \begin{equation*}
         1=m^*(I) \leq m^*(A) + m^*(B) = m^*(A)
     \end{equation*}
-    Furthermore, $A\leq I$ and by monotonicity of outer measure, then $m^*(A) \leq m^*(I)=1$. As a result, $m^*(A)=1$ 
+    Furthermore, $A\subseteq I$ and by monotonicity of outer measure, then $m^*(A) \leq m^*(I)=1$. As a result, $m^*(A)=1$ 
 \end{solution}
 
 \begin{exercise}{7}
@@ -38,7 +38,7 @@
 \begin{solution}
     This exercise is inspired from the proof of theorem 11.
 
-    Suppose $m^*(E)$ finite, then for each $\epsilon > 0$, there exists an open intervals $\{I_i\}_i$, let $O_\epsilon=\bigcup_i I_i$, then $O_\epsilon$ is open, $O_\epsilon \supseteq E$ and
+    Since $E$ is bounded, $m^*(E)$ is finite, then for each $\epsilon > 0$, there exists an open intervals $\{I_i\}_i$, let $O_\epsilon=\bigcup_i I_i$, then $O_\epsilon$ is open, $O_\epsilon \supseteq E$ and
     \begin{equation*}
         m^*(O_\epsilon) \geq m^*(E) \geq m^*(O_\epsilon) - \epsilon
     \end{equation*}
@@ -46,5 +46,63 @@
 \end{solution}
 
 \begin{exercise}{8}
-    Let $B$ be the set of rational numbers in the interval $[0, 1]$, and let $\{I_k\}^n$ be a finite colleciton of open intervals that cover $B$. Prove that $\sum^n m^*(I_k) \geq 1$
+    Let $B$ be the set of rational numbers in the interval $I=[0, 1]$, and let $\{I_k\}^n$ be a finite colleciton of open intervals that cover $B$. Prove that $\sum^n m^*(I_k) \geq 1$
 \end{exercise}
+
+\begin{solution}
+    By contradiction, assuming that there exists a finite collection of intervals that covers $B$, i.e. $B \subseteq \bigcup_i^n I_i$, and $\sum^n m^*(I_k)<1$. These $n$ intervals have a total of $2n$ endpoints, and together with the two endpoints of $I$, amount to at most $2n+2$ endpoints. As a result, the set $I\setminus B$ can be expressed by a finite union of at most $n+1$ intervals. 
+    Let $I\setminus B = \bigcup^{n+1} J_k$, with each $J_k$ an interval or empty set. By finite subadditivity
+    
+    \begin{align*}
+        m^*(I) \leq m^*(B) + \sum^{n+1}_k m^*(J_k)&\leq \sum^n_k m^*(I_k) + \sum^{n+1}_k m^*(J_k) < 1 + \sum^{n+1}_k m^*(J_k)\\
+        0 &< \sum^{n+1}_k m^*(J_k)
+    \end{align*}
+    Therefore, among $n+1$ intervals, at least one of them has positive outer measure. Such intervals are non-degenerated since outer measure of intervals equal to their length. Finally, we can always choose an rational number in such intervals since the rational set are dense and this number is not in $B$, contradict with the definition of $B$.
+\end{solution}
+
+\begin{exercise}{9}
+    Prove that if $m^*(A)=0$, then $m^*(A\cup B) = m^*(B)$
+\end{exercise}
+
+\begin{solution}
+    By subadditivity
+    \[m^*(A\cup B ) \leq m^*(A) + m^*(B) = m^*(B)\]
+    and monotonicity, with $B\subseteq B\cup A$
+    \[m^*(B)\leq m^*(B \cup A)\]
+\end{solution}
+
+\begin{exercise} {10}
+    Let $A$ and $B$ be bounded sets for which there is an $\alpha>0$ such that $|a-b|\geq \alpha$ for all $a\in A, b\in B$. Prove that $m^*(A\cup B)=m^*(A) + m^*(B)$
+\end{exercise}
+\begin{solution} 
+    Since $A$ and $B$ are bounded, they have finite outer measures. 
+    For any $\epsilon>0$, let $C_\epsilon=\{I_k\}$ a collection of open, bounded intervals that cover $A\cup B$ such that
+    \[m^*(A\cup B) \geq \sum^\infty l(I_k) - \epsilon\]
+    let further denote
+    \[O_A = \left(\bigcup I_k\right) \cap \bigcup \{(x-\alpha/2, x+\alpha/2): \forall x \in A\}\]
+    \[O_B = \left(\bigcup I_k\right) \cap \bigcup \{(x-\alpha/2, x+\alpha/2): \forall x \in B\}\]
+    % \[O=O_A \cup O_B\]
+    The followings are statements for $O_A$, but their equivalences are also true to $O_B$
+    \begin{itemize}
+        \item $O_A$ is an open cover of $A$
+        \item $\forall y \in O_A, \exists x \in A, |x-y| < \alpha/2$ 
+    \end{itemize}
+    Furthermore, for every $o_a\in O_A, o_b\in O_B$, $\forall a\in A, b\in B$
+    \[ |a-b| \leq |a-o_a| + |o_a - o_b| + |o_b-b| \]
+    \[ |o_a - o_b| \geq |a-b| - |a-o_a| - |o_b-b| \geq \alpha -|a-o_a| - |o_b-b| \]
+    We can choose $a$ and $b$ to mazimize the RHS, we then have $|o_a-o_b|>0$. As a result, $O_A \cap O_B = \emptyset$.
+
+    By proposition 9, each $O_A$ and $O_B$ can be expressed as disjoint union of coutable collections of open intervals
+    \[O_A = \bigcup I^A_k\]
+    \[O_B = \bigcup I^B_k\]
+
+    % For every $\epsilon > 0$, there exists $\{I^a\}$ and $\{I^b\}$ such that
+
+    % \begin{equation*}
+    %     \sum^\infty l(I^a) \geq m^*(A) \geq \sum^\infty l(I^a) - \epsilon
+    % \end{equation*}
+    % \begin{equation*}
+    %     \sum^\infty l(I^b) \geq m^*(B) \geq \sum^\infty l(I^b) - \epsilon
+    % \end{equation*}
+    
+\end{solution}  
