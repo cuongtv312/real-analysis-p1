@@ -75,26 +75,50 @@
     Let $A$ and $B$ be bounded sets for which there is an $\alpha>0$ such that $|a-b|\geq \alpha$ for all $a\in A, b\in B$. Prove that $m^*(A\cup B)=m^*(A) + m^*(B)$
 \end{exercise}
 \begin{solution} 
-    Since $A$ and $B$ are bounded, they have finite outer measures. 
+    Since $A$ and $B$ are bounded, $m^*(A\cup B)$ finite.
     For any $\epsilon>0$, let $C_\epsilon=\{I_k\}$ a collection of open, bounded intervals that cover $A\cup B$ such that
-    \[m^*(A\cup B) \geq \sum^\infty l(I_k) - \epsilon\]
-    let further denote
-    \[O_A = \left(\bigcup I_k\right) \cap \bigcup \{(x-\alpha/2, x+\alpha/2): \forall x \in A\}\]
-    \[O_B = \left(\bigcup I_k\right) \cap \bigcup \{(x-\alpha/2, x+\alpha/2): \forall x \in B\}\]
-    % \[O=O_A \cup O_B\]
-    The followings are statements for $O_A$, but their equivalences are also true to $O_B$
-    \begin{itemize}
-        \item $O_A$ is an open cover of $A$
-        \item $\forall y \in O_A, \exists x \in A, |x-y| < \alpha/2$ 
-    \end{itemize}
-    Furthermore, for every $o_a\in O_A, o_b\in O_B$, $\forall a\in A, b\in B$
-    \[ |a-b| \leq |a-o_a| + |o_a - o_b| + |o_b-b| \]
-    \[ |o_a - o_b| \geq |a-b| - |a-o_a| - |o_b-b| \geq \alpha -|a-o_a| - |o_b-b| \]
-    We can choose $a$ and $b$ to mazimize the RHS, we then have $|o_a-o_b|>0$. As a result, $O_A \cap O_B = \emptyset$.
+    \begin{equation}\label{eq:ex10.a}
+        m^*(A\cup B) \geq \sum^\infty_{C_\epsilon} l(I_k) - \epsilon
+    \end{equation}
 
-    By proposition 9, each $O_A$ and $O_B$ can be expressed as disjoint union of coutable collections of open intervals
-    \[O_A = \bigcup I^A_k\]
-    \[O_B = \bigcup I^B_k\]
+    Next, we show that if $\epsilon < \alpha/2$, then no intervals in $C_\epsilon$ can contain some $a\in A$ and $b \in B$ at the same time.
+    By contradiction, suppose there exists some $I\in C_\epsilon$ that satisfies such condition.
+    then between $a$ and $b$ there is at least an interval with length $\alpha$ that contains no points from both $A$ and $B$. 
+    Removing an interval with half the length $\alpha/2$ from $I$ results in two smaller intervals $I_1$ and $I_2$ that cover all the points from $A\cup B$ that $I$ covers. As a result,
+    \[C_\epsilon' := C_\epsilon \setminus \{I\} \cup \{I_1, I_2\}\]
+    is another collections of open intervals that cover $A\cup B$, to which 
+    \[\sum_{C'}l(I_j) = \sum_{C}l(I_k) - l(I) + l(I_1) + l(I_2) = \sum_{C}l(I_k) - \alpha/2. \]
+    In word, we have found a new open cover of $A\cup B$ with total length $\alpha/2$ less than the original cover $C_\epsilon$. However, from the definition of outer measure that is the infimum of all open cover,
+    \[\sum_{C'}l(I_j) \geq m^*(A\cup B),\]
+    this contradicts with (\ref{eq:ex10.a}). As a result, each $I_k$ contains either points from $A$ or $B$. Partition $C$ into two collections $C_A$ and $C_B$ as follow 
+    \begin{itemize}
+        \item $I_k \in C_A$ if $I_k$ contains some point $a\in A$
+        \item $I_k \in C_B$ otherwise
+    \end{itemize}
+    now we can write 
+    \[m^*(A\cup B) \geq \sum^\infty_{C_\epsilon} l(I_k) - \epsilon = \sum_{C_A} l(I_a) + \sum_{C_B} l(I_b) - \epsilon \geq m^*(A) + m^*(B) - \epsilon\]
+    where the last inequality is because $C_A$ and $C_B$ cover $A$ and $B$, respectively and outer measure is the infimum of such total lengths. The above inequality holds true for every $0 < \epsilon < \alpha/2$, so
+    \[m^*(A\cup B) \geq m^*(A) + m^*(B),\]
+    combine with countable subadditivity concludes the proof.
+
+    % let further denote
+    % \[O_A = \left(\bigcup I_k\right) \cap \bigcup \{(x-\alpha/2, x+\alpha/2): \forall x \in A\}\]
+    % \[O_B = \left(\bigcup I_k\right) \cap \bigcup \{(x-\alpha/2, x+\alpha/2): \forall x \in B\}\]
+    % % \[O=O_A \cup O_B\]
+    % The followings are statements for $O_A$, but their equivalences are also true to $O_B$
+    % \begin{itemize}
+    %     \item $O_A$ is an open cover of $A$
+    %     \item $\forall y \in O_A, \exists x \in A, |x-y| < \alpha/2$ 
+    % \end{itemize}
+    % Furthermore, for every $o_a\in O_A, o_b\in O_B$, $\forall a\in A, b\in B$
+    % \[ |a-b| \leq |a-o_a| + |o_a - o_b| + |o_b-b| \]
+    % \[ |o_a - o_b| \geq |a-b| - |a-o_a| - |o_b-b| \geq \alpha -|a-o_a| - |o_b-b| \]
+    % We can choose $a$ and $b$ to mazimize the RHS, we then have $|o_a-o_b|>0$. As a result, $O_A \cap O_B = \emptyset$.
+
+    % By proposition 9, each $O_A$ and $O_B$ can be expressed as disjoint union of coutable collections of open intervals
+    % \[O_A = \bigcup I^A_k\]
+    % \[O_B = \bigcup I^B_k\]
+
 
     % For every $\epsilon > 0$, there exists $\{I^a\}$ and $\{I^b\}$ such that
 
