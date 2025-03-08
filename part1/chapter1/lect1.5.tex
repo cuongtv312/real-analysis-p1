@@ -218,6 +218,20 @@ At every index $n$,
 
 And so, by the linearity property of convergent sequences, $\lim_{n\to\infty}\inf\seq{a_k | k \geq n} \leq \lim_{n\to\infty}\sup\seq{a_k | k \geq n}$ or $\liminf\seq{a_n} \leq \limsup\seq{a_n}$.
 
+\noindent \textbf{Ex 43.} \label{ex:43} Show that every real sequence has a monotone subsequence. Use this to provide another proof of the Bolzano-Weierstrass Theorem. 
+
+By contradiction, we assume that there exists a sequence $\{x_i\}_i$ such that it has no monotone subsequence. We devide the proof into two parts: a squence that has no increasing subsequence has a decreasing subsequence and vice versa. We only prove the first part since the other part are identical.
+
+Note that we use the terminology similar to what is defined in the textbook: an increasing sequence has $a_n \leq a_{n+1}$. This is a bit misleading as a more correct term would be "non-decreasing" sequence. 
+
+First, assuming that the sequence $\{x_i\}$ has no increasing subsequence; that is: every construstion of such subsequences stops at some finite steps. More specifically, 
+
+\begin{itemize}
+    \item Starting at $x_0$, we construct the longest increasing subsequence ${x_0, \dots x_m}$. This sequence is finite due to our assumption that $\{x_i\}$ has no increasing subsequence. 
+    \item We then have $x_m>x_j, \forall j > m$ or otherwise we can concatenate $x_j$ to the subsequence found in the previous step to make a longer sequence.
+    \item Let $a_m = x_m$, repeat this process with the rest of sequence $\{x_i\}_{i>m}$, the sequence $\{a_m\}$ is a decreasing sequence. 
+\end{itemize}
+
 \noindent \textbf{Ex 45.} \label{ex:45}
 Let $\seq{a_n}$ be a sequence of real numbers.
 \begin{enumerate}[label=(\roman*)]
