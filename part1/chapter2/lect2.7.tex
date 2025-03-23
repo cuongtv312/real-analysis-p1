@@ -25,7 +25,7 @@ for any real number $r\in \R$ and any disjoint union of intervals $S = \union_n 
 
 \noindent The collection $\seq{\cantor_n}_{n=0}^{\infty}$ has the properites:
 \begin{enumerate}[label=(\roman*)]
-    \item $\seq{\cantor_n}_{n=0}^{\infty}$ is a decending sequence of closed sets.
+    \item $\seq{\cantor_n}_{n=0}^{\infty}$ is a descending sequence of closed sets.
     \item For each $n$, $\cantor_{n}$ is a disjoint union of $2^n$ intervals, each of them with length $1/3^n$.
 \end{enumerate}
 
@@ -63,12 +63,12 @@ $f(u) < f(v) \forall u < v$.
     Let $f: [a,b]\to \R$ be Lipschitz with Lipschitz constant $c$, $I \subseteq [a,b]$ be any bounded open interval with length $\epsilon$.
     $m^\ast(f(I))$ does not exceed $c\epsilon$.
 \end{lem}
-\textbf{Proof}
+\textbf{Proof.}
 
 Express $I$ as $(x-\epsilon/2, x+\epsilon/2)$, denote $y = f(x)$.
 
 We know that $\forall x_0 \in I, \abs{x_0 - x} < \epsilon/2$.
-This implies that $\forall y_0 \in f(I), \abs{y_0 - y} \leq c\abs{x_0 - x} < c\epsilon/2$.
+This implies that $\forall y_0 \in f(I), \abs{y_0 - y} \leq c\abs{x_0 - x} \leq c\epsilon/2$.
 
 As such, $f(I)$ is fully contained in the open interval $(y-c\epsilon/2, y+c\epsilon/2)$ and thus $m^\ast(f(I)) \leq c\epsilon$.
 
@@ -77,7 +77,7 @@ As such, $f(I)$ is fully contained in the open interval $(y-c\epsilon/2, y+c\eps
     $E$ is a closed set in $\R$. $\seq{x_n}$ is any convergent sequence in $E$.
     The limit of $\seq{x_n}$ is in $E$.
 \end{lem}
-\textbf{Proof} We prove by contradiction. Assume $\seq{x_n} \to x \not\in E$, then $x \in \R\setminus E$. 
+\textbf{Proof.} We prove by contradiction. Assume $\seq{x_n} \to x \not\in E$, then $x \in \R\setminus E$. 
 
 $E$ is closed, so $\R\setminus E$ is open, so there exists $\epsilon > 0$ satisfying $(x-\epsilon, x+\epsilon) \intersect E = \seq{\emptyset}$.
 
@@ -85,12 +85,12 @@ For such an $\epsilon$, there exists $N\in \N$ s.t.
 \[n\geq N \implies \abs{x-x_n} < \epsilon \iff x_n \in (x-\epsilon, x+\epsilon)\]
 which is a constradiction ($\seq{x_n}$ is in $E$).
 
-This lemma is used to prove the following lemma.
+\noindent *This lemma is used to prove the following lemma.
 
 \begin{lem}[Lipschitz image of closed, bounded sets]
    Let $f: [a,b]\to \R$ be Lipschitz. The image of every closed set $E\in [a,b]$ is closed.
 \end{lem}
-\textbf{Proof}
+\textbf{Proof.}
 
 Let $y$ be any point of closure of $f(E)$. 
 By definition, we can always choose $y_n \in (y-1/n, y+1/n) \intersect f(E) \forall n\in\N$, we use this fact to create a sequence $\seq{y_n}$ in $f(E)$ that converges to $y$.
@@ -98,7 +98,7 @@ By definition, we can always choose $y_n \in (y-1/n, y+1/n) \intersect f(E) \for
 Let $x_n = f^{-1}(y_n) \forall n$. We now show that $y \in f(E)$.
 
 Firstly, $\seq{x_n}$ is a bounded sequence, by the Bolzano-Weierstrass theorem, there exists a convergent subsequence $\seq{x_{n_k}}$.
-This is a convergent sequence in $E$ - a closed and bounded set in $\R$ so it's limit $x$ is in $E$ (by the Limit point Lemma above).
+This is a convergent sequence in $E$ - a closed set in $\R$, so its limit $x$ is in $E$ (by the Limit point Lemma above).
 
 Secondly, $f$ is continous (Lipschitz functions are continous - trivially provable) so $\seq{x_{n_k}} \to x \implies f(\seq{x_{n_k}}) = y_{n_k} \to f(x)$.
 
@@ -116,9 +116,9 @@ Since $f(E)$ contains all its points of closure, $f(E)$ is closed.
 
     % Also let $c > 0$ (at $c=0$, $f$ is a constant, proofs are trivial)
 
-    From `theorem 11' and the excision property of measurable sets, for any $\epsilon > 0$, there exists a disjoint countable union of open intervals $\union_k I_k \subseteq (a,b)$ containing $Z$ and has $ \sum_k m(I_k) < \epsilon$.
+    From `theorem 11', for any $\epsilon > 0$, there exists a disjoint countable union of open intervals $\union_k I_k \subseteq (a,b)$ containing $Z$ and has $ \sum_k m(I_k) < \epsilon$.
     
-    This implies $m^\ast(f(Z)) \leq m^\ast(f(\union_k I_k)) \leq c\epsilon$ from the `Lipschitz image of open, bounded intervals' lemma (equality happens at $c=0$)
+    This implies $m^\ast(f(Z)) \leq m^\ast(\union_k f(I_k)) \leq c\epsilon$ from the `Lipschitz image of open, bounded intervals' lemma (equality happens at $c=0$)
 
     As $m^\ast(f(Z)) \leq c\epsilon$ for all $\epsilon > 0$, $m^\ast(f(Z)) = 0$.
 
@@ -169,12 +169,13 @@ Let $F_0$ be any closed and bounded subset of $X$. Define $F_{k+1} = \overline{F
 
 We can observe that $\intersect_{k=0}^\infty F_k$ is the intersection of 
 \begin{itemize}
-    \item decending ($F_{k+1}\subseteq F_k$, as it has 0 or 1 less element.)
-    \item bounded ($F_0$ is bounded and $F_k$'s are decending.)
+    \item descending ($F_{k+1}\subseteq F_k$, as it has 0 or 1 less element.)
+    \item countable ($\seq{x_k}_{k=1}^{\infty}$ is an enumeration of a countable set)
     \item non-empty ($F_k \setminus \seq{x_{k+1}}$ cannot be empty, there are infinite points of $X$ within any $x_{k+1}$'s neighbour because $X$ is perfect.)
     \item and closed sets.
+    \item of which $F_0$ is bounded.
 \end{itemize}
-Yet it's intersection is empty, since $\seq{x_k}_{k=1}^{\infty}$ is an enumeration of a countable set. This is a contradiction.
+Yet it's intersection is empty, since $\seq{x_k}_{k=1}^{\infty}$ is an enumeration of a countable set. This contradicts the Nested Set Theorem.
 
 
 \noindent \phantomsection\textbf{Ex 43.} \label{ex:2_43}
@@ -185,17 +186,17 @@ I have proven \hyperref[ex:2_41]{\underline{\textbf{Ex 41.}}} and \hyperref[ex:2
 
 We prove by contradiction.
 
-Assumes the Cantor set is \textbf{not} nowhere dense in $\R$ (assumption 1), 
+Assumes the Cantor set is \textbf{not} nowhere dense in $\R$ (Assumption 1), 
 there exists an open set $\Ocal$ s.t. every open subset $U \intersect \cantor \neq \seq{\emptyset}$.
 This is equivalent to $\cantor^c \intersect \Ocal = \seq{\emptyset}$, in other words, $\Ocal \subseteq \cantor$.
 We now express $\Ocal$ as a union of disjoint open intervals and pick any such interval $(a,b), b-a > 0$.
 
 We now show that there cannot exist an open interval $(a,b) \subseteq \cantor$ also by contradiction.
 
-Assume, a valid open inveral $(a,b) \subseteq \cantor$ does exist (assumption 2).
+Assume, a valid open inveral $(a,b) \subseteq \cantor$ does exist (Assumption 2).
 Thanks to how the Cantor set is constructed, this open interval must be a subset of $ C_k \forall k$, 
 which implies that the length of $(a,b)$ cannot exceed $C_k$'s total length for any $k$, in other words $b-a < (2/3)^k \forall k$.
 
 But because $\seq{(2/3)^k} \to 0$ as $k\to\infty$, we have $b-a < 0$, which contradicts assumption 2.
 
-As such, there doesn't exist $\Ocal \subseteq \cantor$, contradicting assumption 1.
+As such, there cannot exist $\Ocal \subseteq \cantor$. Assumption 1 has created a contradiction.
