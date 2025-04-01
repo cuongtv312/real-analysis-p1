@@ -1,0 +1,169 @@
+\subsection{Sequential Pointwise Limits And Simple Approximation}
+
+\subsubsection{Excercise}
+
+\begin{exercise}{14}
+    Let $f$ be a measurable function on $E$ that is finite a.e. on $E$ and $m(E) < \infty$. For each $\epsilon > 0$, show that there is a measurable set $F$ contained in $E$ such that $f$ is bounded on $F$ and $m(E \setminus F) < \epsilon$.
+\end{exercise}
+
+\begin{solution}
+    Define:
+\[
+E_n = \{ x \in E \mid |f(x)| \leq n \}
+\]
+Since $f$ is a measurable function, each $E_n$ is measurable.  
+The restriction of $f$ to $E_n$ is bounded.
+
+Since $f$ is finite a.e. on $E$, we have:
+\[
+E' = \{ x \in E \mid |f(x)| = \infty \} \quad \text{and} \quad m(E') = 0.
+\]
+
+We know that:
+\[
+E \setminus E' = \bigcup_{n=1}^{\infty} E_n = \{ x \in E \mid f(x) < \infty \}.
+\]
+
+Thus, 
+\[
+m(E \setminus \bigcup_{n=1}^{\infty} E_n) = m(E') = 0.
+\]
+
+We show that $\{ E \setminus E_k \}_{k=1}^{\infty}$ is descending and:
+\[
+m(E \setminus E_1) \leq m(E) < \infty.
+\]
+
+Applying Theorem 15 (ii) / page 44,
+\[
+\lim_{k \to \infty} m(E \setminus E_k) = m \left(  \bigcap_{k=1}^{\infty} ( E \setminus E_k ) \right) = m \left(  E \setminus \bigcup_{k=1}^{\infty} E_k \right)  = 0.
+\]
+
+Therefore, $\forall$ $\epsilon > 0$, $\exists$ $k$ such that if $n \geq k$, then:
+\[
+m(E \setminus E_{n}) < \epsilon.
+\]
+
+So, $F$ is $E_n$.
+\end{solution}
+
+\begin{exercise}{16} \label{ex:16}
+    Let $I$ be a closed, bounded interval and $E$ a measurable subset of $I$. Let $\epsilon > 0$. Show that there is a step function $h$ on $I$ and a measurable subset $F$ of $I$ for which
+    \begin{equation*}
+        h = \chi_E \text{ on } F \text{ and } m(I \setminus F) < \epsilon.
+    \end{equation*}
+    (Hint: Use Theorem 12 of Chapter 2.)
+\end{exercise}
+
+\begin{solution}
+Let \( I \) be a closed, bounded interval, and \( E \) a measurable subset of \( I \). Following Theorem 12 (Chapter 2):
+
+For any \( \epsilon > 0 \), there exists a finite collection of disjoint open intervals \(\{I_k\}_{k=1}^n\) such that if \( O = \bigcup_{k=1}^n I_k \), then  
+\[
+m(E \Delta O) < \epsilon.
+\]
+
+Define the set \( F \) as:  
+\[
+F = I \setminus (E \Delta O) = I \cap \left( (E \cap O^c) \cup (O \cap E^c) \right)^c.
+\]  
+Simplifying the complement:  
+\[
+F = I \cap \left( (E \cap O) \cup (E^c \cap O^c) \right) = (I \cap E \cap O) \cup (I \cap E^c \cap O^c).
+\]  
+
+The measure of the complement of \( F \) satisfies:  
+\[
+m(I \setminus F) = m(E \Delta O) < \epsilon.
+\]  
+
+Define the step function \( h \) as:  
+\[
+h(x) = \begin{cases} 
+1 & \text{for } x \in I \cap E \cap O, \\
+0 & \text{for } x \in I \cap E^c \cap O^c.
+\end{cases}
+\]  
+This ensures \( h = \chi_E \) on \( F \).  
+\end{solution}
+
+
+\begin{exercise}{17} \label{ex:17}
+    Let $I$ be a closed, bounded interval and $\psi$ a simple function defined on $I$. Let $\epsilon > 0$. Show that there is a step function $h$ on $I$ and a measurable subset $F$ of $I$ for which
+    \begin{equation*}
+        h = \psi \text{ on } F \text{ and } m(I \setminus F) < \epsilon.
+    \end{equation*}
+    (Hint: Use the fact that a simple function is a linear combination of characteristic functions and the preceding problem.)
+\end{exercise}
+
+\begin{solution}
+Let \( \psi \) be a simple function on a closed, bounded interval \( I \), defined as \( \psi = \sum_{k=1}^n a_k \chi_{E_k} \), where \( E_k \subseteq I \) are measurable and \( a_k \) are constants.  
+
+   For each \( k \), there exists a step function \( h_k \) and a measurable set \( F_k \subseteq I \) (\hyperref[ex:16]{\underline{\textbf{Problem 16}}}) such that:  
+   \[
+   h_k = \chi_{E_k} \text{ on } F_k \quad \text{and} \quad m(I \setminus F_k) < \frac{\epsilon}{n}.
+   \]  
+
+   Let \( h = \sum_{k=1}^n a_k h_k \). Since each \( h_k \) is a step function, \( h \) is also a step function.  
+
+   Define \( F = \bigcap_{k=1}^n F_k \). On \( F \), \( h_k = \chi_{E_k} \) for all \( k \), so \( h = \psi \) on \( F \).  
+
+   \[
+   m(I \setminus F) = m\left(\bigcup_{k=1}^n (I \setminus F_k)\right) \leq \sum_{k=1}^n m(I \setminus F_k) < \sum_{k=1}^n \frac{\epsilon}{n} = \epsilon.
+   \]
+\end{solution}
+
+\begin{exercise}{18}
+    Let $I$ be a closed, bounded interval and $f$ a bounded measurable function defined on $I$. Let $\epsilon > 0$. Show that there is a step function $h$ on $I$ and a measurable subset $F$ of $I$ for which
+    \begin{equation*}
+        |h - f| < \epsilon \text{ on } F \text{ and } m(I \setminus F) < \epsilon.
+    \end{equation*}
+\end{exercise}
+
+\begin{solution}
+
+   By the Simple Approximation Lemma, there exists a simple function \( \psi \) such that:  
+   \[
+   |\psi(x) - f(x)| < \ \epsilon
+   \] 
+
+   By (\hyperref[ex:17]{\underline{\textbf{Problem 17}}}), there exists a step function \( h \) and a measurable set \( F \subseteq I \) such that:  
+   \[
+   h = \psi \text{ on } F \quad \text{and} \quad m(I \setminus F) < \ \epsilon.
+   \]
+\end{solution}
+
+\begin{exercise}{22}
+    (Dini’s Theorem) Let $\{f_n\}$ be an increasing sequence of continuous functions on $[a, b]$ which converges pointwise on $[a, b]$ to the continuous function $f$ on $[a, b]$. Show that the convergence is uniform on $[a, b]$. 
+
+    (Hint: Let $\epsilon > 0$. For each natural number $n$, define
+    \begin{equation*}
+        E_n = \{ x \in [a, b] \mid f(x) - f_n(x) < \epsilon \}.
+    \end{equation*}
+    Show that $\{E_n\}$ is an open cover of $[a, b]$ and use the Heine-Borel Theorem.)
+\end{exercise}
+
+\begin{solution}
+   For \( \epsilon > 0 \), let  
+   \[
+   E_n = \left\{ x \in [a, b] \mid f(x) - f_n(x) < \epsilon \right\}.
+   \]
+   Since \( f_n \) and \( f \) are continuous, \( f - f_n \) is continuous. The set \( E_n \) is the preimage of the open interval \( (-\infty, \epsilon) \), hence \( E_n \) is open.  
+   By pointwise convergence, for every \( x \in [a, b] \), there exists \( k \in \mathbb{N} \) such that \( x \in E_k \). Thus,  
+   \[
+   [a, b] \subseteq \bigcup_{k \in \mathbb{N}} E_k,
+   \]
+   
+   making \( \{E_k\} \) an open cover of \([a, b]\).  
+   Since \([a, b]\) is closed and bounded, there exists a finite subcover \( \{E_{k_1}, E_{k_2}, \ldots, E_{k_m}\} \). Let \( N = \max\{k_1, k_2, \ldots, k_m\} \).  
+   
+   Because \( \{f_n\} \) is an increasing sequence, \( E_{n} \subseteq E_{n+1} \). For \( n \geq N \),  
+   \[
+   E_n = [a, b].
+   \]  
+   Therefore, with $n \geq N$ $\forall$ \( x \in [a, b] \),  
+   \[
+   f(x) - f_n(x) < \epsilon.
+   \]  
+   This establishes uniform convergence 
+\end{solution}
