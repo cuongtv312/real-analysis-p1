@@ -1,0 +1,182 @@
+\newcommand{\LHS}{\text{LHS}}
+\newcommand{\RHS}{\text{RHS}}
+
+\subsection{The General Lebesgue Integral}
+\subsubsection{Excercise}
+
+\underline{\textbf{Problems done: 28, 30, 31, 33, 34.}}
+\bigskip
+
+% \noindent \phantomsection \textbf{Ex 35.} \label{ex:2_35}
+
+
+\noindent \phantomsection \textbf{Ex 28.} \label{ex:4_28}
+
+By definition, $(f\cdot \chi_C)(x) = f(x)$ for all $x\in C$ and $(f\cdot \chi_C)(x) = 0$ for all $x\in A$ s.t. $A \intersect C = \emptyset$.
+
+From Corollary 18,
+\begin{align*}
+    \int_E (f \cdot \chi_C) &= \int_C (f \cdot \chi_C) + \int_{E\setminus C} (f \cdot \chi_C)\\
+    &= \int_C f + \int_{E\setminus C} 0 \\
+    &= \int_C f
+\end{align*}
+
+
+\noindent \phantomsection \textbf{Ex 30.} \label{ex:4_30}
+
+\textbf{\textit{Note that you could use exercise 27 to speed up and simplify the proof, I didn't use it because I am stupid.}}
+
+Assume on $E$ unless specified.
+
+\begin{enumerate}[label=(\roman*)]
+    \item $\int_E \liminf f_n \leq \liminf \int_E f_n$
+    
+    Let $h_n = f_n + g \forall n \in \N$. We now have $\seq{h_n}$ - a sequence of non-negative a.e. ($\abs{f_n} \leq g$), measurable everywhere functions on $E$.
+    
+    Define $a_n = \inf\seq{h_k | k \geq n}$, as $\liminf h$ always exists, $\seq{a_n}$ is a convergent a.e sequence of non-negative a.e. functions. (Trivally, $\lim a_n = \liminf h_n$ a.e.)
+
+    Apply Fatou's Lemma to $\seq{a_n}$, 
+    \begin{align*}
+        \int_E \lim a_n &\leq \liminf \int_E a_n \\
+        \int_E \liminf h_n &\leq \liminf \int_E \inf\seq{h_k| k \geq n} \\
+        \int_E \liminf (f_n + g) &\leq \liminf \int_E \inf\seq{f_k + g | k \geq n} \\
+        \int_E \liminf f_n &\leq \liminf \int_E \inf\seq{f_k| k \geq n} \leq \liminf \int_E f_n
+    \end{align*}
+
+    ($\inf\seq{f_k + g | k \geq n} \leq f_n \forall n\in\N \implies \int_E \inf\seq{f_k + g | k \geq n} \leq \int_E f_n$ via monotonicity of intergration)
+
+    \item $\liminf \int_E f_n \leq \limsup \int_E f_n$
+    
+    The sequence $\seq{\int_E f_n}$ is a sequence in $\R^1$, so this inequality is true (see \ref{ex:1_41})
+
+    \item $\limsup \int_E f_n \leq \int_E \limsup f_n$
+
+    Let $p_n = g - f_n \forall n \in \N$. We now have $\seq{p_n}$ - a sequence of non-negative a.e. ($\abs{f_n} \leq g$), measurable everywhere functions on $E$.
+    
+    Define $b_n = \inf\seq{h_k | k \geq n}$, as $\liminf p$ always exists, $\seq{b_n}$ is a convergent a.e. sequence of non-negative a.e. functions. (Trivally, $\lim b_n = \liminf p_n$ a.e.)
+
+    Apply Fatou's Lemma to $\seq{b_n}$, 
+    \begin{align*}
+        \int_E \lim b_n &\leq \liminf \int_E b_n \\
+        \int_E \liminf p_n &\leq \liminf \int_E \inf\seq{p_k| k \geq n} \\
+        \int_E g - \int_E \limsup f_n &\leq \int_E g - \limsup \int_E \sup\seq{f_n| k \geq n} \quad (30*)\\
+        \limsup \int_E \sup\seq{f_n| k \geq n} &\leq \int_E \limsup f_n \quad (30**)\\
+        \limsup \int_E f_n &\leq \int_E \limsup f_n
+    \end{align*}
+
+    \begin{itemize}
+        \item (30*):
+        \begin{itemize}
+            \item LHS: \[\int_E \liminf p_n = \int_E \liminf (g - f_n) = \int_E (g + \liminf (-f_n)) = \int_E (g - \limsup f_n) = \int_E g - \int_E \limsup f_n.\]
+            \item RHS: \begin{align*}
+                \liminf \int_E \inf\seq{p_k| k \geq n} &= \liminf \int_E \inf\seq{g - f_n| k \geq n}
+            \\&= \liminf \int_E (g + \inf\seq{-f_n| k \geq n}) \\&= \liminf \int_E (g - \sup\seq{f_n| k \geq n})
+            \\&= \int_E g + \liminf \left(-\int_E \sup\seq{f_n| k \geq n}\right) \\&= \int_E g - \limsup \int_E \sup\seq{f_n| k \geq n}.
+            \end{align*}
+        \end{itemize}
+        \item (30**): $f_n \leq \sup\seq{f_k + g | k \geq n}\forall n\in\N \implies \int_E f_n \leq \int_E \sup\seq{f_k + g | k \geq n}$ via monotonicity of intergration.
+    \end{itemize}
+    
+    
+\end{enumerate}
+
+Q.E.D.
+
+
+\noindent \phantomsection \textbf{Ex 31.} \label{ex:4_31}
+Let $f = g_1 + h_1 = g_2 + h_2$ be two decompositions of $f$,
+satisfying $g_1,g_2$ are both finite and integrable over $E$,
+and $h_1,h_2$ are both nonnegative on $E$.
+
+Note that $h_1,h_2$ are both integrable via linearity of integration.
+
+We now show that $\int_E g_1 + \int_E h_1 = \int_E g_2 + \int_E h_2$.
+
+Since $g_1 + h_1 = g_2 + h_2$, this implies $g_1 - g_2 = h_2 - h_1$. We have:
+\begin{itemize}
+    \item $\int_E \LHS = \int_E (g_1 - g_2) = \int_E g_1 - \int_E g_2$ via linearity of integrations.
+    \item $\RHS = h_2 - h_1$, 
+    
+    Define two sets $A = \seq{x\in E | \RHS(x) \leq 0}, B = \seq{x\in E | \RHS(x) < 0}$
+    \begin{align*}
+        \int_A \RHS &= \int_A h_2 - \int_A h_1, \\
+        \int_B \RHS &= \int_B h_2 - \int_B h_1, \\
+        \implies \int_E \RHS &= \int_A \RHS + \int_B \RHS = \int_E h_2 - \int_E h_1.
+    \end{align*}
+\end{itemize}
+
+Q.E.D.
+
+
+\noindent \phantomsection \textbf{Ex 33.} \label{ex:4_33}
+
+\begin{thm}[General Lebesgue Dominated Convergence Theorem]
+    Given:
+    \begin{itemize}
+        \item $\seq{f_n}$ is a sequence of             measurable functions on $E$ that converges pointwise a.e. on $E$ to $f$.
+        \item $\seq{g_n}$ is a sequence of nonnegative measurable functions on $E$ that converges pointwise a.e. on $E$ to $g$.
+        \item The sequence $\seq{g_n}$ dominates $\seq{f_n}$ on $E$ ($\abs{f_n} \leq g_n \forall n$ on $E$).
+    \end{itemize}
+    We have:
+    \[lim_{n\to\infty} \int_E g_n = \int_E g < \infty \implies lim_{n\to\infty} \int_E f_n = \int_E f.\]
+\end{thm}
+
+
+Since $f$ is integrable over $E$, $f < \infty$ on $E$ (and by extension, $\abs{f}$ as well).
+
+\begin{enumerate}[label=(\roman*)]
+    \item $\lim_{n\to\infty} \int_E \abs{f - f_n} = 0$ implies $\lim_{n\to\infty} \int_E \abs{f_n} = \int_E \abs{f}$.
+    
+    \begin{itemize}
+        \item $f_n \to f$ a.e. on $E$ $\implies \abs{f_n} \to \abs{f}$ a.e. on $E$. Also, $\abs{f_n}$ is measurable.
+        
+        As such, $\seq{\abs{f_n}}$ is a sequence of             measurable functions on $E$ that converges pointwise a.e. on $E$ to $\abs{f}$.
+
+        \item $\lim_{n\to\infty}\seq{\abs{f} + \abs{f - f_n}} = \abs{f} + \lim_{n\to\infty} \int_E \abs{f - f_n} = \abs{f}$.
+        
+        As such, $\seq{\abs{f} + \abs{f - f_n}}$ is a sequence of nonnegative measurable functions on $E$ that converges pointwise a.e. on $E$ to $\abs{f}$.
+
+        \item Via the triangle inequality, $\abs{f_n} \leq \abs{f} + \abs{f-f_n} \forall n\in\N$. 
+        
+        As such, the sequence $\seq{\abs{f} + \abs{f - f_n}}$ dominates $\seq{\abs{f_n}}$ on $E$.
+    \end{itemize}
+
+    From the General Lebesgue Dominated Convergence Theorem, since $\lim_{n\to\infty}\seq{\abs{f} + \abs{f - f_n}}= \abs{f} < \infty$, we have
+    \[\lim_{n\to\infty} \int_E \abs{f_n} = \int_E \abs{f}.\]
+
+    
+    \item $\lim_{n\to\infty} \int_E \abs{f_n} = \int_E \abs{f}$ implies $\lim_{n\to\infty} \int_E \abs{f - f_n} = 0$.
+    
+    Define $a_n = \abs{f} + \abs{f_n} - \abs{f-f_n}$
+    
+    We have, $\abs{f} + \abs{f_n} - \abs{f-f_n} \geq 0 + \forall n\in\N$.
+    This implies $\seq{a_n}$ is a sequence of nonnegative, measurable functions on $E$.
+
+    Also, trivally, $\abs{f_n} \to \abs{f}$ implies $\seq{a_n} \to 2\abs{f}$.
+
+    According to Fatou's Lemma:
+    \begin{align*}
+        \int_E 2\abs{f} &\leq \liminf \int_E a_n
+        \\&= \liminf \int_E (\abs{f} + \abs{f_n} - \abs{f-f_n})
+        \\&= \liminf \int_E \abs{f} + \liminf \int_E \abs{f_n} liminf - \int_E \abs{f-f_n}
+        \\&= 2 \int_E \abs{f} - \limsup \int_E \abs{f-f_n}.
+        \\ 0 &= \limsup \int_E \abs{f - f_n}
+    \end{align*}
+    
+    We also have $\liminf \int_E \abs{f - f_n} \leq \limsup \int_E \abs{f - f_n} = 0$ but because $\abs{f - f_n} \geq 0 \forall n\in\N$ implies that $\int_E \abs{f - f_n} \geq 0 \forall n\in\N$,
+    We conclude that $\liminf \int_E \abs{f - f_n} = \limsup \int_E \abs{f - f_n} = 0$.
+
+    As such, $\lim_{n\to\infty} \int_E \abs{f - f_n} = 0$.
+\end{enumerate}
+
+
+\noindent \phantomsection \textbf{Ex 34.} \label{ex:4_34}
+\begin{align*}
+    \lim_{n\to\infty} \int_{-n}^{n} f 
+      &= \lim_{n\to\infty} \int_{[-n; n]} f
+    \\&= \lim_{n\to\infty} \int_\R (f \cdot \chi_{[-n;n]})
+    \\&= \int_\R \lim_{n\to\infty} (f \cdot \chi_{[-n;n]}) \quad \text{(f is nonnegative)}
+    \\&= \int_\R f
+\end{align*}
+
+(Trivially, the sequence $\lim_{n\to\infty} (f \cdot \chi_{[-n;n]})$ converges pointwise to $f$ everywhere on $\R$ - proof via picking any random $x \in \R$.)
