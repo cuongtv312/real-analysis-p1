@@ -1,14 +1,13 @@
-\documentclass[24pt]{article}
+\subsection{Introduction}
+\subsubsection{Excercise}
 
-\begin{document}
-
-\section{Ex 16}
+\textbf{Ex 16}
 (iii). if $E$ is measurable $\Rightarrow R \sim E$ is measurable.
 
 For each $\epsilon > 0$, there is a open set $O$ containing $R \sim E$ for which $m^*(O \sim (R \sim E)) < \epsilon$
 Let $F = R \sim O$, then $F$ contained in $E$ and $m^*(E \sim F) < \epsilon$
 
-\section{Ex 17}
+\textbf{Ex 17}
 First, suppose $E$ is measurable. Then for each $\frac{\epsilon}{2} > 0$, there is open set $O$ and closed set $F$ for which $m^*(O \sim E) < \frac{\epsilon}{2}$ and $m^*(E \sim F) < \frac{\epsilon}{2}$
 
 Because $O \sim F = (O\sim E) \cup (E \sim F)$
@@ -16,10 +15,10 @@ $\Rightarrow m^*(O \sim F) \leq m^*(O \sim E) + m^*(E \sim F) < \epsilon$
 
 Now suppose for each $\epsilon > 0$, there is a closed set $F$ and open set $O$ for which $F \subseteq E \subseteq O$ and $m^*(O \sim F) < \epsilon$, then $m^*(O \sim E) \leq m^*(O \sim F) < \epsilon \Rightarrow E$ is measurable.
 
-\section{Ex 18}
+\textbf{Ex 18}
 See prob 17
 
-\section{Ex 19}
+\textbf{Ex 19}
 If $E$ is not measurable, by theorem 11 (i), there is $\epsilon_0 > 0$ for which for all open set $O$ containing $E$, $m^*(O \sim E) \geq \epsilon_0$
 
 $m^*(E) = inf\{\sum_{k=1}^{\infty}l(I_k) | A \subseteq \cup_{k = 1}^{\infty}I_k\}$\\
@@ -30,7 +29,7 @@ $\Rightarrow m^*(E) > \sum_{k=1}^{\infty}l(I_k) - \epsilon_0 \geq m^*(O) - \epsi
 
 So $m^*(O \sim E) \geq \epsilon_0 > m^*(O) - m^*(E)$
 
-\section{Ex 21}
+\textbf{Ex 21}
 Let $A$ and $B$ are measurable sets. By property (ii) of theorem 11, there is $G_{\delta}$ $G_A, G_B$ for which $m^*(G_A \sim A) = 0, m^*(G_B \sim B) = 0$
 
 Let $G = \cap_{k=1}^{\infty}(G_{Ak} \cup G_{Bk}) \Rightarrow G = G_A \cup G_B$\\
@@ -38,12 +37,10 @@ $0 \leq m^*(G \sim (A \cup B)) = m^*((G_A \cup G_B) \sim (A \cup B)) \leq m^*(G_
 
 So $m^*(G \sim (A \cup B)) = 0$, then $A \cup B$ is measurable.
 
-\section{Ex 22}
+\textbf{Ex 22}
 Since $m^{**}(A) = inf(...)$, for $\epsilon > 0$, there is open set $O, A \subseteq O$ for which $m^{**}(A) \geq m^*(O) - \epsilon$
 
 Since $m^*(A) = inf(...)$, for $\epsilon > 0$, there is $\{I_k\}_{k=1}^{\infty}$ (Let $O = \cup^{\infty}_{k=1}I_k \Rightarrow A \subseteq O$) for which\\
 $m^*(A) \geq \sum_{k=1}^{\infty}l(I_k) - \epsilon \geq m^*(O) - \epsilon \geq m^{**}(A) - \epsilon$
 
 Thus, $m^{**}(A) + \epsilon \geq m^*(A) \geq m^{**}(A) - \epsilon$ for each $\epsilon > 0 \Rightarrow m^{**}(A) = m^*(A)$
-
-\end{document}

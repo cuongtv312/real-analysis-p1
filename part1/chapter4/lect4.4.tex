@@ -1,0 +1,197 @@
+% \subsection{The Cantor set and The Cantor-Lesbegue function}
+% \subsubsection{Summary}
+
+% \noindent To ease the definition of the Cantor set, define the following set functions 
+% for any real number $r\in \R$ and any disjoint union of intervals $S = \union_n [a_n, b_n]$:
+% \begin{itemize}
+%     \item $r + S = \union_n \left[r+a_n, r+b_n\right]$,
+%     \item $r\times S = \union_n \left[r\times a_n, r\times b_n\right]$.
+% \end{itemize}
+
+% \begin{defn}[The Cantor Set]
+%     The Cantor set $\cantor$ can be defined by the following recursive sequence of sets
+%     \begin{align}
+%         \cantor_0 &= [0,1] \\
+%         \cantor_{n+1} &= \frac{\cantor_n}{3} \union \left(\frac{2}{3} + \frac{\cantor_n}{3}\right) \\
+%         \cantor &= \intersect_{n=1}^{\infty} \cantor_n
+%     \end{align}
+% \end{defn}
+
+% \noindent The collection $\seq{\cantor_n}_{n=0}^{\infty}$ has the properites:
+% \begin{enumerate}[label=(\roman*)]
+%     \item $\seq{\cantor_n}_{n=0}^{\infty}$ is a descending sequence of closed sets.
+%     \item For each $n$, $\cantor_{n}$ is a disjoint union of $2^n$ intervals, each of them with length $1/3^n$.
+% \end{enumerate}
+
+% \begin{thm}
+%     The Cantor set $C$ is a closed, uncountable set of measure zero.
+% \end{thm}
+
+
+% \noindent A real-valued function $f$ that is defined on a set of real numbers is said to be
+% increasing provided $f(u) \leq f(v) \iff u \leq v$ and said to be strictly increasing, provided
+% $f(u) < f(v) \forall u < v$.
+
+
+% \begin{defn}[The Cantor function]
+%     Follow \href{https://www.math.purdue.edu/~torresm/lecture-notes/lebesgue-theory/lebesgue-lecture16.pdf}{this link} 
+%     for a more rigorous definition (you'll need some function sequence convergence definitions)
+% \end{defn}
+
+% \begin{prop}
+%     The Cantor-Lesbegue function $\varphi$ is an increasing continous function that maps $[0,1]$ to $[0,1]$.
+%     Its derivative exists on the openset $\mathcal{O} = [0,1]\setminus \cantor$ and is 0.
+% \end{prop}
+
+% \subsubsection{Excercise}
+% % Problem groups:
+% %   39-40
+% \underline{\textbf{Problems done: 38, 41, 42, 43, 44.}}
+% \bigskip
+
+% % \noindent \phantomsection \textbf{Ex 35.} \label{ex:2_35}
+
+
+% \noindent \phantomsection \textbf{Ex 38.} \label{ex:2_38}
+% \begin{lem}[Lipschitz image of open, bounded intervals]
+%     Let $f: [a,b]\to \R$ be Lipschitz with Lipschitz constant $c$, $I \subseteq [a,b]$ be any bounded open interval with length $\epsilon$.
+%     $m^\ast(f(I))$ does not exceed $c\epsilon$.
+% \end{lem}
+% \textbf{Proof.}
+
+% Express $I$ as $(x-\epsilon/2, x+\epsilon/2)$, denote $y = f(x)$.
+
+% We know that $\forall x_0 \in I, \abs{x_0 - x} < \epsilon/2$.
+% This implies that $\forall y_0 \in f(I), \abs{y_0 - y} \leq c\abs{x_0 - x} \leq c\epsilon/2$.
+
+% As such, $f(I)$ is fully contained in the open interval $(y-c\epsilon/2, y+c\epsilon/2)$ and thus $m^\ast(f(I)) \leq c\epsilon$.
+
+
+% \begin{lem}[Limit point]
+%     $E$ is a closed set in $\R$. $\seq{x_n}$ is any convergent sequence in $E$.
+%     The limit of $\seq{x_n}$ is in $E$.
+% \end{lem}
+% \textbf{Proof.} We prove by contradiction. Assume $\seq{x_n} \to x \not\in E$, then $x \in \R\setminus E$. 
+
+% $E$ is closed, so $\R\setminus E$ is open, so there exists $\epsilon > 0$ satisfying $(x-\epsilon, x+\epsilon) \intersect E = \seq{\emptyset}$.
+
+% For such an $\epsilon$, there exists $N\in \N$ s.t.
+% \[n\geq N \implies \abs{x-x_n} < \epsilon \iff x_n \in (x-\epsilon, x+\epsilon)\]
+% which is a constradiction ($\seq{x_n}$ is in $E$).
+
+% \noindent *This lemma is used to prove the following lemma.
+
+% \begin{lem}[Lipschitz image of closed, bounded sets]
+%    Let $f: [a,b]\to \R$ be Lipschitz. The image of every closed set $E\in [a,b]$ is closed.
+% \end{lem}
+% \textbf{Proof.}
+
+% Let $y$ be any point of closure of $f(E)$. 
+% By definition, we can always choose $y_n \in (y-1/n, y+1/n) \intersect f(E) \forall n\in\N$, we use this fact to create a sequence $\seq{y_n}$ in $f(E)$ that converges to $y$.
+
+% Let $x_n = f^{-1}(y_n) \forall n$. We now show that $y \in f(E)$.
+
+% Firstly, $\seq{x_n}$ is a bounded sequence, by the Bolzano-Weierstrass theorem, there exists a convergent subsequence $\seq{x_{n_k}}$.
+% This is a convergent sequence in $E$ - a closed set in $\R$, so its limit $x$ is in $E$ (by the Limit point Lemma above).
+
+% Secondly, $f$ is continous (Lipschitz functions are continous - trivially provable) so $\seq{x_{n_k}} \to x \implies f(\seq{x_{n_k}}) = y_{n_k} \to f(x)$.
+
+% Because limits are unique, $y = f(x)$ and so $y\in E$.
+
+% Since $f(E)$ contains all its points of closure, $f(E)$ is closed.
+
+% \bigskip
+
+% \noindent We use the `Lipschitz image' lemmas, and theorem 11 of chapter 2.4 to solve this excercise.
+% \begin{itemize}
+%     \item $f$ map sets of measure zero to sets of measure zero.
+
+%     Let $Z \in (a,b)$ be any set of measure zero (extending this to sets of measure zero containing endpoints is trivial)
+
+%     % Also let $c > 0$ (at $c=0$, $f$ is a constant, proofs are trivial)
+
+%     From `theorem 11', for any $\epsilon > 0$, there exists a disjoint countable union of open intervals $\union_k I_k \subseteq (a,b)$ containing $Z$ and has $ \sum_k m(I_k) < \epsilon$.
+    
+%     This implies $m^\ast(f(Z)) \leq m^\ast(\union_k f(I_k)) \leq c\epsilon$ from the `Lipschitz image of open, bounded intervals' lemma (equality happens at $c=0$)
+
+%     As $m^\ast(f(Z)) \leq c\epsilon$ for all $\epsilon > 0$, $m^\ast(f(Z)) = 0$.
+
+%     \item $f$ maps $F_\sigma$ sets to $F_\sigma$ sets.
+    
+%     Let $E = \union_k E_k \in [a,b]$ be any $F_\sigma$ set.
+
+%     By the `Lipschitz image of closed, bounded sets' lemma, $f(E_k)$ is closed for all $k$, as such $f(E) = \union_k f(E_k)$ is an $F_\sigma$ set.
+
+%     \item $f$ maps measurable sets to measurable sets.
+    
+%     Let $M \in [a,b]$ be a measurable set. From `theorem 11', there exists an $F_\sigma$ set $E$ contained by $M$ satisfying $m^\ast(M \setminus E) = 0$.
+
+%     We have
+%     \begin{itemize}
+%         \item[] $f(E)$ is an $F_\sigma$ set (because $E$ is an $F_\sigma$ set), thus it is measurable.
+%         \item[] $f(M\setminus E)$ is a set of measure zero (since $m^\ast(M\setminus E) = 0$), which is also measurable.
+%     \end{itemize}
+%     Because unions of 2 measurable sets are measurable and $f(M) = f(E) \union f(M\setminus E)$, $f(M)$ is measurable.
+% \end{itemize}
+
+
+% \noindent \phantomsection \textbf{Ex 41.} \label{ex:2_41}
+
+% Pick any point $c \in \cantor$, fix any $\epsilon > 0$, let $I = (c-\epsilon, c+\epsilon)$
+
+% We pick any $N\in \N$ s.t. $1/3^N < \epsilon$.
+
+% \begin{itemize}
+%     \item[] At step $N$, the singular inverval containing $c$ is a subset of the neighbour $I$, and as such, there is at least 1 point in $\cantor$ within this neighbour $I$ (specifically, 1 end point of the interval containing $c$).
+%     \item[] At step $N+1$, this inverval is splitted into 2, there are now 2 intevals contained in $I$, we can see there is at least 3 points in $\cantor$ within the neighbour $I$.
+%     \item[] At step $N+2$, each inverval is splitted into 2 again, there are now 4 intevals contained in $I$, we can see there is at least 7 points in $\cantor$ within the neighbour $I$.
+%     \item[] $\cdots$
+%     \item[] At step $N+k$, there is at least $\sum_{i=0}^{k} 2\times2^i - 1$ points in $\cantor$ within $I$.
+% \end{itemize}
+
+% Since $\seq{\sum_{i=0}^{k} 2\times2^i - 1}_{k=0}^{\infty}$ converges to infinity, there are inifinite points in the Cantor set within any neighbour of any points in the Cantor set.
+
+% And because the Cantor set is closed, it is perfect.
+
+
+% \noindent \phantomsection\textbf{Ex 42.} \label{ex:2_42}
+% Proof by contradiction:
+
+% Assume a perfect set $X$ is countable, let $\seq{x_k}_{k=1}^{\infty}$ be any of its enumeration.
+
+% Let $F_0$ be any closed and bounded subset of $X$. Define $F_{k+1} = \overline{F_k \setminus \seq{x_{k+1}}}$.
+
+% We can observe that $\intersect_{k=0}^\infty F_k$ is the intersection of 
+% \begin{itemize}
+%     \item descending ($F_{k+1}\subseteq F_k$, as it has 0 or 1 less element.)
+%     \item countable ($\seq{x_k}_{k=1}^{\infty}$ is an enumeration of a countable set)
+%     \item non-empty ($F_k \setminus \seq{x_{k+1}}$ cannot be empty, there are infinite points of $X$ within any $x_{k+1}$'s neighbour because $X$ is perfect.)
+%     \item and closed sets.
+%     \item of which $F_0$ is bounded.
+% \end{itemize}
+% Yet it's intersection is empty, since $\seq{x_k}_{k=1}^{\infty}$ is an enumeration of a countable set. This contradicts the Nested Set Theorem.
+
+
+% \noindent \phantomsection\textbf{Ex 43.} \label{ex:2_43}
+% I have proven \hyperref[ex:2_41]{\underline{\textbf{Ex 41.}}} and \hyperref[ex:2_42]{\underline{\textbf{Ex 42.}}}.
+
+
+% \noindent \phantomsection\textbf{Ex 44.} \label{ex:2_44}
+
+% We prove by contradiction.
+
+% Assumes the Cantor set is \textbf{not} nowhere dense in $\R$ (Assumption 1), 
+% there exists an open set $\Ocal$ s.t. every open subset $U \intersect \cantor \neq \seq{\emptyset}$.
+% This is equivalent to $\cantor^c \intersect \Ocal = \seq{\emptyset}$, in other words, $\Ocal \subseteq \cantor$.
+% We now express $\Ocal$ as a union of disjoint open intervals and pick any such interval $(a,b), b-a > 0$.
+
+% We now show that there cannot exist an open interval $(a,b) \subseteq \cantor$ also by contradiction.
+
+% Assume, a valid open inveral $(a,b) \subseteq \cantor$ does exist (Assumption 2).
+% Thanks to how the Cantor set is constructed, this open interval must be a subset of $ C_k \forall k$, 
+% which implies that the length of $(a,b)$ cannot exceed $C_k$'s total length for any $k$, in other words $b-a < (2/3)^k \forall k$.
+
+% But because $\seq{(2/3)^k} \to 0$ as $k\to\infty$, we have $b-a < 0$, which contradicts assumption 2.
+
+% As such, there cannot exist $\Ocal \subseteq \cantor$. Assumption 1 has created a contradiction.
+None
