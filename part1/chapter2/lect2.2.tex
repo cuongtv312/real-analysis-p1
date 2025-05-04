@@ -77,7 +77,7 @@
 \begin{solution} 
     Since $A$ and $B$ are bounded, $m^*(A\cup B)$ finite.
     For any $\epsilon>0$, let $C_\epsilon=\{I_k\}$ a collection of open, bounded intervals that cover $A\cup B$ such that
-    \begin{equation}\label{eq:ex10.a}
+    \begin{equation}\label{eq:ex10_a}
         m^*(A\cup B) \geq \sum^\infty_{C_\epsilon} l(I_k) - \epsilon
     \end{equation}
 
@@ -90,7 +90,7 @@
     \[\sum_{C'}l(I_j) = \sum_{C}l(I_k) - l(I) + l(I_1) + l(I_2) = \sum_{C}l(I_k) - \alpha/2. \]
     In word, we have found a new open cover of $A\cup B$ with total length $\alpha/2$ less than the original cover $C_\epsilon$. However, from the definition of outer measure that is the infimum of all open cover,
     \[\sum_{C'}l(I_j) \geq m^*(A\cup B),\]
-    this contradicts with (\ref{eq:ex10.a}). As a result, each $I_k$ contains either points from $A$ or $B$. Partition $C$ into two collections $C_A$ and $C_B$ as follow 
+    this contradicts with (\ref{eq:ex10_a}). As a result, each $I_k$ contains either points from $A$ or $B$. Partition $C$ into two collections $C_A$ and $C_B$ as follow 
     \begin{itemize}
         \item $I_k \in C_A$ if $I_k$ contains some point $a\in A$
         \item $I_k \in C_B$ otherwise
